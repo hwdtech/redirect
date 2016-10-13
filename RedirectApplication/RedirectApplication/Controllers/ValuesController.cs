@@ -56,17 +56,17 @@ namespace RedirectApplication.Controllers
             {
                 var data = DateTime.Now.ToString();
                 String ID_URL = RandomString(15);
-                var redir = new RedirectRule { Id = ID_URL, Data = data };
+                var redir = new RedirectRule { TargetUrl = ID_URL, Conditions = data };
                 db.RedirectRules.Add(redir);
                 db.SaveChanges();
 
                 var query = from b in db.RedirectRules
-                            orderby b.Data
+                            orderby b.Conditions
                             select b;
 
                 foreach (var item in query)
                 {
-                    result.Append("\n" + item.Id + "\t" + item.Data);
+                    result.Append("\n" + item.TargetUrl + "\t" + item.Conditions);
                 }
             }
 

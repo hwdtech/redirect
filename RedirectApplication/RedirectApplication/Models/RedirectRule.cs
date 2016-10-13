@@ -9,7 +9,8 @@ namespace RedirectApplication.Models
 {
     public class RedirectRule
     {
-        public string Id { get; set; }
-        public string Data { get; set; }
+        [Key]
+        public string TargetUrl { get; set; }
+        public string Conditions { get; set; }
     }
 }

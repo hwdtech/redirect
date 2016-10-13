@@ -9,6 +9,10 @@ namespace RedirectApplication.RedirectDB
 {
     public class RedirectContext : DbContext
     {
+        public RedirectContext() : base("DefaultConnection")
+        {
+
+        }
         public DbSet<RedirectRule> RedirectRules { get; set; }
     }
 }
