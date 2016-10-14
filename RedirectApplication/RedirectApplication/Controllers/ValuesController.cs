@@ -15,20 +15,20 @@ namespace RedirectApplication.Controllers
         // GET api/values
         public HttpResponseMessage Get()
         {
-            var browser = HttpContext.Current.Request.Browser.Browser.ToString(); //Какой браузер использует пользователь
-            var OS = HttpContext.Current.Request.Browser.Platform.ToString(); ///Какая ОС используется пользователем
-            var MobileOrNot = HttpContext.Current.Request.Browser.IsMobileDevice.ToString(); //true - пользователь сидить с мобильного устройства. иначе - false
-            var userIP = HttpContext.Current.Request.UserHostAddress.ToString(); //IP пользователя. Пока что определяется как ::1 т.к. локалка
-            var language = Request.Headers.AcceptLanguage.ToString().Substring(0, 2); //Наиболее используемый пользователем язык
+            var browser = HttpContext.Current.Request.Browser.Browser.ToString(); //Which browser is using //http://www.codeproject.com/Articles/1088703/How-to-detect-browsers-in-ASP-NET-with-browser-fil#_comments
+            var OS = HttpContext.Current.Request.Browser.Platform.ToString(); ///Which OS is using
+            var MobileOrNot = HttpContext.Current.Request.Browser.IsMobileDevice.ToString(); //true - request was made by Mobile device
+            var userIP = HttpContext.Current.Request.UserHostAddress.ToString(); //Now it`s ::1 because it's running locally
+            var language = Request.Headers.AcceptLanguage.ToString().Substring(0, 2); //The most used language
             var nGeoRequest = new Request()
             {
                 Format = Format.Json,
-                IP = "91.144.189.179" //Из-за того, что локалка - придется пока что использовать заранее указанный IP
+                IP = "91.144.189.179" //here is specified ip address because it's running locally
             };
             var nGeoClient = new NGeoClient(nGeoRequest);
             var rawData = nGeoClient.Execute();
-            var Country = rawData.CountryName.ToString(); //Страна пользователя
-            var Time = DateTime.Now.ToString(); //Время запроса пользователя
+            var Country = rawData.CountryName.ToString(); //The country where the request was made
+            var Time = DateTime.Now.ToString(); //The time when the request was made
             var resp = new HttpResponseMessage(HttpStatusCode.OK);
             return resp;
         }
