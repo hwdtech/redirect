@@ -1,0 +1,65 @@
+Browser	language	Country	IP	OS	Device	Time
+
+{rules: [{Name": "ByBrowser", "Browser":"Chrome"},{"Name":"ByLanguauge", "Language":"en"},{"Name":"ByCountry","Country":"Австралия"},{"Name":"ByIP","IP":"172.168.0.128 - 172.168.1.168"},{"Name":"ByOS","OS":"Windows"},{"Name":"ByDevice","Device":"Mobile"},{"Name":"ByDate","Date":">18.10"}], "Url":"https://vk.com/ouromsk"}
+
+{rules: [{Name": "ByBrowser", "Browser":"Chrome"},{"Name":"ByLanguauge", "Language":"en"},{"Name":"ByCountry","Country":"Канада"},{"Name":"ByIP","IP":"172.168.0.1 - 172.168.1.128"},{"Name":"ByOS","OS":"Linux"},{"Name":"ByDevice","Device":"Desktop"},{"Name":"ByDate","Date":"<18.10"}], "Url":"http://fkn.univer.omsk.su/"}
+{rules: [{Name": "ByBrowser", "Browser":"Chrome"},{"Name":"ByLanguauge", "Language":"ru"},{"Name":"ByCountry","Country":"Россия"},{"Name":"ByIP","IP":"172.168.0.128 - 172.168.1.168"},{"Name":"ByOS","OS":"Linux"},{"Name":"ByDevice","Device":"Desktop"},{"Name":"ByDate","Date":">18.10"}], "Url":"http://www.atrium-omsk.ru/"}
+{rules: [{Name": "ByBrowser", "Browser":"Opera"},{"Name":"ByLanguauge", "Language":"en"},{"Name":"ByCountry","Country":"Австралия"},{"Name":"ByIP","IP":"172.168.0.170 - 172.168.1.194"},{"Name":"ByOS","OS":"Linux"},{"Name":"ByDevice","Device":"Desktop"},{"Name":"ByDate","Date":"<18.10"}], "Url":"http://slavakino.ru/"}
+
+{rules: [{Name": "ByBrowser", "Browser":"Edge"},{"Name":"ByLanguauge", "Language":"en"},{"Name":"ByCountry","Country":"США"},{"Name":"ByIP","IP":"172.168.0.170 - 172.168.1.194"},{"Name":"ByOS","OS":"Windows"},{"Name":"ByDevice","Device":"Desktop"},{"Name":"ByDate","Date":">18.10"}], "Url":"http://www.vvm.ru/"}
+{rules: [{Name": "ByBrowser", "Browser":"Safari"},{"Name":"ByLanguauge", "Language":"ru"},{"Name":"ByCountry","Country":"Казахстан"},{"Name":"ByIP","IP":"172.168.0.1 - 172.168.1.128"},{"Name":"ByOS","OS":"Windows"},{"Name":"ByDevice","Device":"Desktop"},{"Name":"ByDate","Date":">18.10"}], "Url":"http://vavilon-kino.ru/"}
+{rules: [{Name": "ByBrowser", "Browser":"Internet Explorer"},{"Name":"ByLanguauge", "Language":"ru"},{"Name":"ByCountry","Country":"Россия"},{"Name":"ByIP","IP":"172.168.0.128 - 172.168.1.168"},{"Name":"ByOS","OS":"Windows"},{"Name":"ByDevice","Device":"Desktop"},{"Name":"ByDate","Date":"<18.10"}], "Url":"http://www.kosmos-omsk.ru/"}
+
+{rules: [{Name": "ByBrowser", "Browser":"Safari"},{"Name":"ByLanguauge", "Language":"en"},{"Name":"ByCountry","Country":"США"},{"Name":"ByIP","IP":"172.168.0.128 - 172.168.1.168"},{"Name":"ByOS","OS":"Mac"},{"Name":"ByDevice","Device":"Desktop"},{"Name":"ByDate","Date":"<18.10"}], "Url":"http://kristall-kino.ru/"}
+{rules: [{Name": "ByBrowser", "Browser":"Safari"},{"Name":"ByLanguauge", "Language":"ru"},{"Name":"ByCountry","Country":"Казахстан"},{"Name":"ByIP","IP":"172.168.0.128 - 172.168.1.168"},{"Name":"ByOS","OS":"Mac"},{"Name":"ByDevice","Device":"Desktop"},{"Name":"ByDate","Date":">18.10"}], "Url":"http://mayak-kino.ru/"}
+{rules: [{Name": "ByBrowser", "Browser":"Safari"},{"Name":"ByLanguauge", "Language":"en"},{"Name":"ByCountry","Country":"Канада"},{"Name":"ByIP","IP":"172.168.0.128 - 172.168.1.168"},{"Name":"ByOS","OS":"Mac"},{"Name":"ByDevice","Device":"Desktop"},{"Name":"ByDate","Date":"<18.10"}], "Url":"http://www.apple.com/"}
+
+{rules: [{Name": "ByBrowser", "Browser":"Opera"},{"Name":"ByLanguauge", "Language":"en"},{"Name":"ByCountry","Country":"Канада"},{"Name":"ByIP","IP":"172.168.0.1 - 172.168.1.128"},{"Name":"ByDevice","Device":"Mobile"},{"Name":"ByDate","Date":">18.10"}], "Url":"http://kdcirtish.jimdo.com/"}
+{rules: [{Name": "ByBrowser", "Browser":"Safari"},{"Name":"ByLanguauge", "Language":"en"},{"Name":"ByCountry","Country":"Австралия"},{"Name":"ByIP","IP":"172.168.0.128 - 172.168.1.168"},{"Name":"ByDevice","Device":"Mobile"},{"Name":"ByDate","Date":">18.10"}], "Url":"http://konti-kino.ru/"}
+{rules: [{Name": "ByBrowser", "Browser":"Chrome"},{"Name":"ByLanguauge", "Language":"ru"},{"Name":"ByCountry","Country":"Россия"},{"Name":"ByIP","IP":"172.168.0.170 - 172.168.1.194"},{"Name":"ByDevice","Device":"Mobile"},{"Name":"ByDate","Date":"<18.10"}], "Url":"http://konti-kino.ru/"}
+{rules: [{Name": "ByBrowser", "Browser":"Opera"},{"Name":"ByLanguauge", "Language":"en"},{"Name":"ByCountry","Country":"США"},{"Name":"ByIP","IP":"172.168.0.128 - 172.168.1.168"},{"Name":"ByDevice","Device":"Mobile"},{"Name":"ByDate","Date":"<18.10"}], "Url":"http://citforum.ru/"}
+
+{rules: [{Name": "ByBrowser", "Browser":"Opera"},{"Name":"ByLanguauge", "Language":"en"}], "Url":"http://acm.dvpion.ru/"}
+{rules: [{Name": "ByBrowser", "Browser":"Chrome"},{"Name":"ByLanguauge", "Language":"ru"}], "Url":"http://cppstudio.com/"}
+{rules: [{Name": "ByBrowser", "Browser":"Chrome"},{"Name":"ByLanguauge", "Language":"en"}], "Url":"http://www.c-cpp.ru/"}
+{rules: [{Name": "ByBrowser", "Browser":"Internet Explorer"},{"Name":"ByLanguauge", "Language":"ru"}], "Url":"http://life-prog.ru/"}
+{rules: [{Name": "ByBrowser", "Browser":"Edge"},{"Name":"ByLanguauge", "Language":"en"}], "Url":"http://metanit.com/"}
+
+{rules: [{Name": "ByBrowser", "Browser":"Opera"},{"Name":"ByIP","IP":"172.168.0.128 - 172.168.1.168"}], "Url":"http://devoid.com.ua/"}
+{rules: [{Name": "ByBrowser", "Browser":"Chrome"},{"Name":"ByIP","IP":"172.168.0.1 - 172.168.1.128"}], "Url":"https://habrahabr.ru/"}
+{rules: [{Name": "ByBrowser", "Browser":"Internet Explorer"},{"Name":"ByIP","IP":"172.168.0.170 - 172.168.1.194"}], "Url":"http://informatics.mccme.ru/"}
+{rules: [{Name": "ByBrowser", "Browser":"Edge"},{"Name":"ByIP","IP":"172.168.0.1 - 172.168.1.128"}], "Url":"http://www.cyberforum.ru/}
+{rules: [{Name": "ByBrowser", "Browser":"Safari"},{"Name":"ByIP","IP":"172.168.0.170 - 172.168.1.194"}], "Url":"https://msdn.microsoft.com"}
+
+{rules: [{Name": "ByBrowser", "Browser":"Opera"},{"Name":"ByDevice","Device":"Mobile"}], "Url":"http://artanovy.com/"}
+{rules: [{Name": "ByBrowser", "Browser":"Chrome"},{"Name":"ByDevice","Device":"Mobile"}], "Url":"https://tproger.ru"}
+{rules: [{Name": "ByBrowser", "Browser":"Safari"},{"Name":"ByDevice","Device":"Mobile"}], "Url":"http://webnotes.by/"}
+
+{rules: [{Name": "ByBrowser", "Browser":"Opera"},{"Name":"ByDate","Date":"<18.10"}], "Url":"http://www.calabonga.net/"}
+{rules: [{Name": "ByBrowser", "Browser":"Chrome"},{"Name":"ByDate","Date":">18.10"}], "Url":"http://www.optimization.com.ua/"}
+{rules: [{Name": "ByBrowser", "Browser":"Internet Explorer"},{"Name":"ByDate","Date":"<18.10"}], "Url":"http://i-study-qa.blogspot.ru/"}
+{rules: [{Name": "ByBrowser", "Browser":"Edge"},{"Name":"ByDate","Date":">18.10"}], "Url":"http://www.protesting.ru/"}
+{rules: [{Name": "ByBrowser", "Browser":"Safari"},{"Name":"ByDate","Date":"<18.10"}], "Url":"http://rulesplay.ru/"}
+
+{"Name:":"ByBrowser","Browser":"Chrome","Url":"http://pikabu.ru/"}
+{"Name:":"ByBrowser","Browser":"Opera","Url":"https://www.youtube.com"}
+{"Name:":"ByBrowser","Browser":"Safari","Url":"https://twitter.com/"}
+{"Name:":"ByBrowser","Browser":"Internet Explorer","Url":"http://amovies.biz/"}
+{"Name:":"ByBrowser","Browser":"Edge","Url":"http://amovies.biz/"}
+{"Name":"ByLanguauge", "Language":"ru", "Url":"https://e.mail.ru"}
+{"Name":"ByLanguauge", "Language":"en", "Url":"https://www.gismeteo.ru"}
+{"Name":"ByCountry","Country":"Австралия","Url":"https://ru.foursquare.com"}
+{"Name":"ByCountry","Country":"Канада","Url":"https://portal.tiktokcoach.ru"}
+{"Name":"ByCountry","Country":"Казахстан","Url":"http://www.galaktika-omsk.ru/"}
+{"Name":"ByCountry","Country":"Россия","Url":"http://www.wellfix.ru/"}
+{"Name":"ByCountry","Country":"США","Url":"http://www.hyundai-solaris.com/"}
+{"Name":"ByIP","IP":"172.168.0.1 - 172.168.1.128","Url":"http://solaris-club.net/"}
+{"Name":"ByIP","IP":"172.168.0.128 - 172.168.1.168","Url":"https://vk.com/audio}
+{"Name":"ByIP","IP":"172.168.0.170 - 172.168.1.194","Url":"https://vk.com/"}
+{"Name":"ByOS","OS":"Windows","Url":"https://www.mp3poisk.me/"}
+{"Name":"ByOS","OS":"Linux","Url":"http://www.volkswagen.ru/"}
+{"Name":"ByOS","OS":"Mac","Url":"https://drive.google.com/"}
+{"Name":"ByDevice","Device":"Mobile","Url":"https://mail.google.com/"}
+{"Name":"ByDevice","Device":"Desktop","Url":"http://www.gibdd.ru/"}
+{"Name":"ByDate","Date":"до 15.10","Url":"https://www.gosuslugi.ru/"}
+{"Name":"ByDate","Date":"после 15.10","Url":"https://mail.yandex.ru/"}
