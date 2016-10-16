@@ -1,23 +1,23 @@
 Browser	language	Country	IP	OS	Device	Time
 
-{rules: [{Name": "ByBrowser", "Browser":"Chrome"},{"Name":"ByLanguauge", "Language":"en"},{"Name":"ByCountry","Country":"Австралия"},{"Name":"ByIP","IP":"172.168.0.128 - 172.168.1.168"},{"Name":"ByOS","OS":"Windows"},{"Name":"ByDevice","Device":"Mobile"},{"Name":"ByDate","Date":">18.10"}], "Url":"https://vk.com/ouromsk"}
+{rules: [{Name": "ByBrowser", "Browser":"Chrome"},{"Name":"ByLanguauge", "Language":"en"},{"Name":"ByCountry","Country":"Australia"},{"Name":"ByIP","IP":"172.168.0.128 - 172.168.1.168"},{"Name":"ByOS","OS":"Windows"},{"Name":"ByDevice","Device":"Mobile"},{"Name":"ByDate","Date":">18.10"}], "Url":"https://vk.com/ouromsk"}
 
-{rules: [{Name": "ByBrowser", "Browser":"Chrome"},{"Name":"ByLanguauge", "Language":"en"},{"Name":"ByCountry","Country":"Канада"},{"Name":"ByIP","IP":"172.168.0.1 - 172.168.1.128"},{"Name":"ByOS","OS":"Linux"},{"Name":"ByDevice","Device":"Desktop"},{"Name":"ByDate","Date":"<18.10"}], "Url":"http://fkn.univer.omsk.su/"}
-{rules: [{Name": "ByBrowser", "Browser":"Chrome"},{"Name":"ByLanguauge", "Language":"ru"},{"Name":"ByCountry","Country":"Россия"},{"Name":"ByIP","IP":"172.168.0.128 - 172.168.1.168"},{"Name":"ByOS","OS":"Linux"},{"Name":"ByDevice","Device":"Desktop"},{"Name":"ByDate","Date":">18.10"}], "Url":"http://www.atrium-omsk.ru/"}
-{rules: [{Name": "ByBrowser", "Browser":"Opera"},{"Name":"ByLanguauge", "Language":"en"},{"Name":"ByCountry","Country":"Австралия"},{"Name":"ByIP","IP":"172.168.0.170 - 172.168.1.194"},{"Name":"ByOS","OS":"Linux"},{"Name":"ByDevice","Device":"Desktop"},{"Name":"ByDate","Date":"<18.10"}], "Url":"http://slavakino.ru/"}
+{rules: [{Name": "ByBrowser", "Browser":"Chrome"},{"Name":"ByLanguauge", "Language":"en"},{"Name":"ByCountry","Country":"Canada"},{"Name":"ByIP","IP":"172.168.0.1 - 172.168.1.128"},{"Name":"ByOS","OS":"Linux"},{"Name":"ByDevice","Device":"Desktop"},{"Name":"ByDate","Date":"<18.10"}], "Url":"http://fkn.univer.omsk.su/"}
+{rules: [{Name": "ByBrowser", "Browser":"Chrome"},{"Name":"ByLanguauge", "Language":"ru"},{"Name":"ByCountry","Country":"Russia"},{"Name":"ByIP","IP":"172.168.0.128 - 172.168.1.168"},{"Name":"ByOS","OS":"Linux"},{"Name":"ByDevice","Device":"Desktop"},{"Name":"ByDate","Date":">18.10"}], "Url":"http://www.atrium-omsk.ru/"}
+{rules: [{Name": "ByBrowser", "Browser":"Opera"},{"Name":"ByLanguauge", "Language":"en"},{"Name":"ByCountry","Country":"Australia"},{"Name":"ByIP","IP":"172.168.0.170 - 172.168.1.194"},{"Name":"ByOS","OS":"Linux"},{"Name":"ByDevice","Device":"Desktop"},{"Name":"ByDate","Date":"<18.10"}], "Url":"http://slavakino.ru/"}
 
-{rules: [{Name": "ByBrowser", "Browser":"Edge"},{"Name":"ByLanguauge", "Language":"en"},{"Name":"ByCountry","Country":"США"},{"Name":"ByIP","IP":"172.168.0.170 - 172.168.1.194"},{"Name":"ByOS","OS":"Windows"},{"Name":"ByDevice","Device":"Desktop"},{"Name":"ByDate","Date":">18.10"}], "Url":"http://www.vvm.ru/"}
-{rules: [{Name": "ByBrowser", "Browser":"Safari"},{"Name":"ByLanguauge", "Language":"ru"},{"Name":"ByCountry","Country":"Казахстан"},{"Name":"ByIP","IP":"172.168.0.1 - 172.168.1.128"},{"Name":"ByOS","OS":"Windows"},{"Name":"ByDevice","Device":"Desktop"},{"Name":"ByDate","Date":">18.10"}], "Url":"http://vavilon-kino.ru/"}
-{rules: [{Name": "ByBrowser", "Browser":"Internet Explorer"},{"Name":"ByLanguauge", "Language":"ru"},{"Name":"ByCountry","Country":"Россия"},{"Name":"ByIP","IP":"172.168.0.128 - 172.168.1.168"},{"Name":"ByOS","OS":"Windows"},{"Name":"ByDevice","Device":"Desktop"},{"Name":"ByDate","Date":"<18.10"}], "Url":"http://www.kosmos-omsk.ru/"}
+{rules: [{Name": "ByBrowser", "Browser":"Edge"},{"Name":"ByLanguauge", "Language":"en"},{"Name":"ByCountry","Country":"USA"},{"Name":"ByIP","IP":"172.168.0.170 - 172.168.1.194"},{"Name":"ByOS","OS":"Windows"},{"Name":"ByDevice","Device":"Desktop"},{"Name":"ByDate","Date":">18.10"}], "Url":"http://www.vvm.ru/"}
+{rules: [{Name": "ByBrowser", "Browser":"Safari"},{"Name":"ByLanguauge", "Language":"ru"},{"Name":"ByCountry","Country":"Kazakhstan"},{"Name":"ByIP","IP":"172.168.0.1 - 172.168.1.128"},{"Name":"ByOS","OS":"Windows"},{"Name":"ByDevice","Device":"Desktop"},{"Name":"ByDate","Date":">18.10"}], "Url":"http://vavilon-kino.ru/"}
+{rules: [{Name": "ByBrowser", "Browser":"Internet Explorer"},{"Name":"ByLanguauge", "Language":"ru"},{"Name":"ByCountry","Country":"Russia"},{"Name":"ByIP","IP":"172.168.0.128 - 172.168.1.168"},{"Name":"ByOS","OS":"Windows"},{"Name":"ByDevice","Device":"Desktop"},{"Name":"ByDate","Date":"<18.10"}], "Url":"http://www.kosmos-omsk.ru/"}
 
 {rules: [{Name": "ByBrowser", "Browser":"Safari"},{"Name":"ByLanguauge", "Language":"en"},{"Name":"ByCountry","Country":"США"},{"Name":"ByIP","IP":"172.168.0.128 - 172.168.1.168"},{"Name":"ByOS","OS":"Mac"},{"Name":"ByDevice","Device":"Desktop"},{"Name":"ByDate","Date":"<18.10"}], "Url":"http://kristall-kino.ru/"}
-{rules: [{Name": "ByBrowser", "Browser":"Safari"},{"Name":"ByLanguauge", "Language":"ru"},{"Name":"ByCountry","Country":"Казахстан"},{"Name":"ByIP","IP":"172.168.0.128 - 172.168.1.168"},{"Name":"ByOS","OS":"Mac"},{"Name":"ByDevice","Device":"Desktop"},{"Name":"ByDate","Date":">18.10"}], "Url":"http://mayak-kino.ru/"}
-{rules: [{Name": "ByBrowser", "Browser":"Safari"},{"Name":"ByLanguauge", "Language":"en"},{"Name":"ByCountry","Country":"Канада"},{"Name":"ByIP","IP":"172.168.0.128 - 172.168.1.168"},{"Name":"ByOS","OS":"Mac"},{"Name":"ByDevice","Device":"Desktop"},{"Name":"ByDate","Date":"<18.10"}], "Url":"http://www.apple.com/"}
+{rules: [{Name": "ByBrowser", "Browser":"Safari"},{"Name":"ByLanguauge", "Language":"ru"},{"Name":"ByCountry","Country":"Kazakhstan"},{"Name":"ByIP","IP":"172.168.0.128 - 172.168.1.168"},{"Name":"ByOS","OS":"Mac"},{"Name":"ByDevice","Device":"Desktop"},{"Name":"ByDate","Date":">18.10"}], "Url":"http://mayak-kino.ru/"}
+{rules: [{Name": "ByBrowser", "Browser":"Safari"},{"Name":"ByLanguauge", "Language":"en"},{"Name":"ByCountry","Country":"Canada"},{"Name":"ByIP","IP":"172.168.0.128 - 172.168.1.168"},{"Name":"ByOS","OS":"Mac"},{"Name":"ByDevice","Device":"Desktop"},{"Name":"ByDate","Date":"<18.10"}], "Url":"http://www.apple.com/"}
 
-{rules: [{Name": "ByBrowser", "Browser":"Opera"},{"Name":"ByLanguauge", "Language":"en"},{"Name":"ByCountry","Country":"Канада"},{"Name":"ByIP","IP":"172.168.0.1 - 172.168.1.128"},{"Name":"ByDevice","Device":"Mobile"},{"Name":"ByDate","Date":">18.10"}], "Url":"http://kdcirtish.jimdo.com/"}
-{rules: [{Name": "ByBrowser", "Browser":"Safari"},{"Name":"ByLanguauge", "Language":"en"},{"Name":"ByCountry","Country":"Австралия"},{"Name":"ByIP","IP":"172.168.0.128 - 172.168.1.168"},{"Name":"ByDevice","Device":"Mobile"},{"Name":"ByDate","Date":">18.10"}], "Url":"http://konti-kino.ru/"}
-{rules: [{Name": "ByBrowser", "Browser":"Chrome"},{"Name":"ByLanguauge", "Language":"ru"},{"Name":"ByCountry","Country":"Россия"},{"Name":"ByIP","IP":"172.168.0.170 - 172.168.1.194"},{"Name":"ByDevice","Device":"Mobile"},{"Name":"ByDate","Date":"<18.10"}], "Url":"http://konti-kino.ru/"}
-{rules: [{Name": "ByBrowser", "Browser":"Opera"},{"Name":"ByLanguauge", "Language":"en"},{"Name":"ByCountry","Country":"США"},{"Name":"ByIP","IP":"172.168.0.128 - 172.168.1.168"},{"Name":"ByDevice","Device":"Mobile"},{"Name":"ByDate","Date":"<18.10"}], "Url":"http://citforum.ru/"}
+{rules: [{Name": "ByBrowser", "Browser":"Opera"},{"Name":"ByLanguauge", "Language":"en"},{"Name":"ByCountry","Country":"Canada"},{"Name":"ByIP","IP":"172.168.0.1 - 172.168.1.128"},{"Name":"ByDevice","Device":"Mobile"},{"Name":"ByDate","Date":">18.10"}], "Url":"http://kdcirtish.jimdo.com/"}
+{rules: [{Name": "ByBrowser", "Browser":"Safari"},{"Name":"ByLanguauge", "Language":"en"},{"Name":"ByCountry","Country":"Australia"},{"Name":"ByIP","IP":"172.168.0.128 - 172.168.1.168"},{"Name":"ByDevice","Device":"Mobile"},{"Name":"ByDate","Date":">18.10"}], "Url":"http://konti-kino.ru/"}
+{rules: [{Name": "ByBrowser", "Browser":"Chrome"},{"Name":"ByLanguauge", "Language":"ru"},{"Name":"ByCountry","Country":"Russia"},{"Name":"ByIP","IP":"172.168.0.170 - 172.168.1.194"},{"Name":"ByDevice","Device":"Mobile"},{"Name":"ByDate","Date":"<18.10"}], "Url":"http://konti-kino.ru/"}
+{rules: [{Name": "ByBrowser", "Browser":"Opera"},{"Name":"ByLanguauge", "Language":"en"},{"Name":"ByCountry","Country":"USA"},{"Name":"ByIP","IP":"172.168.0.128 - 172.168.1.168"},{"Name":"ByDevice","Device":"Mobile"},{"Name":"ByDate","Date":"<18.10"}], "Url":"http://citforum.ru/"}
 
 {rules: [{Name": "ByBrowser", "Browser":"Opera"},{"Name":"ByLanguauge", "Language":"en"}], "Url":"http://acm.dvpion.ru/"}
 {rules: [{Name": "ByBrowser", "Browser":"Chrome"},{"Name":"ByLanguauge", "Language":"ru"}], "Url":"http://cppstudio.com/"}
@@ -48,11 +48,11 @@ Browser	language	Country	IP	OS	Device	Time
 {"Name:":"ByBrowser","Browser":"Edge","Url":"http://amovies.biz/"}
 {"Name":"ByLanguauge", "Language":"ru", "Url":"https://e.mail.ru"}
 {"Name":"ByLanguauge", "Language":"en", "Url":"https://www.gismeteo.ru"}
-{"Name":"ByCountry","Country":"Австралия","Url":"https://ru.foursquare.com"}
-{"Name":"ByCountry","Country":"Канада","Url":"https://portal.tiktokcoach.ru"}
-{"Name":"ByCountry","Country":"Казахстан","Url":"http://www.galaktika-omsk.ru/"}
-{"Name":"ByCountry","Country":"Россия","Url":"http://www.wellfix.ru/"}
-{"Name":"ByCountry","Country":"США","Url":"http://www.hyundai-solaris.com/"}
+{"Name":"ByCountry","Country":"Australia","Url":"https://ru.foursquare.com"}
+{"Name":"ByCountry","Country":"Canada","Url":"https://portal.tiktokcoach.ru"}
+{"Name":"ByCountry","Country":"Kazakhstan","Url":"http://www.galaktika-omsk.ru/"}
+{"Name":"ByCountry","Country":"Russia","Url":"http://www.wellfix.ru/"}
+{"Name":"ByCountry","Country":"USA","Url":"http://www.hyundai-solaris.com/"}
 {"Name":"ByIP","IP":"172.168.0.1 - 172.168.1.128","Url":"http://solaris-club.net/"}
 {"Name":"ByIP","IP":"172.168.0.128 - 172.168.1.168","Url":"https://vk.com/audio}
 {"Name":"ByIP","IP":"172.168.0.170 - 172.168.1.194","Url":"https://vk.com/"}
