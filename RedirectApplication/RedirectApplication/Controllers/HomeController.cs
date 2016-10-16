@@ -10,7 +10,7 @@ namespace RedirectApplication.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Title = "Home Page";
+            ViewBag.Title = "Not Home Page";
 
             return View();
         }
