@@ -4,6 +4,8 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using RedirectApplication.Models;
+using RedirectApplication.RedirectDB;
 namespace RedirectApplication.Controllers
 {
     public class ValuesController : ApiController
