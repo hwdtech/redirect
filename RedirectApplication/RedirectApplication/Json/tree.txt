@@ -1,0 +1,25 @@
+{
+  "Conditions": [
+    {
+      "name": "Composite",
+      "Rules": [
+        {
+          "name": "ByBrowser",
+	  "Browser":"Safari"
+	},
+	{
+	  "name":"ByIp",
+	  "IP": ["192.168.0.1","192.168.1.192"],
+	}
+	"url":"ya.ru",	
+          ]
+        },
+        {
+          "name": "ByBrowser",
+          "Browser": "Chrome",
+          "url":"vk.com"
+        }
+      ]
+    }
+  ]
+}
