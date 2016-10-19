@@ -10,16 +10,15 @@ using Newtonsoft.Json.Linq;
 
 namespace RedirectApplication.Json
 {
-    public class Json
+    public class JsonWorking
     {
-        static void Main(string[] args)
+        public void Main(string tree)
         {
-            var tree = System.IO.File.ReadAllText("tree.json");
+            //var tree = System.IO.File.ReadAllText("tree.json");
             var reader = new JsonTextReader(new StringReader(tree));
-            FileContent content = JsonSerializer.CreateDefault().Deserialize<FileContent>(reader);
+            PostJson content = JsonSerializer.CreateDefault().Deserialize<PostJson>(reader);
 
-            File.WriteAllText("rules.json",JsonConvert.SerializeObject(content));
-            Console.ReadKey();
+            //File.WriteAllText("rules.json",JsonConvert.SerializeObject(content));
         }
     }
 
@@ -83,7 +82,15 @@ namespace RedirectApplication.Json
         }
     }
 
-    class FileContent
+    class PostJson
+    {
+        [JsonConverter(typeof(TreeNodeConverter))]
+        public string TargetUrl { get; set; }
+        [JsonConverter(typeof(TreeNodeConverter))]
+        public List<ITreeNode> Conditions { get; set; }
+    }
+
+    class DbJson
     {
         [JsonConverter(typeof(TreeNodeConverter))]
         public List<ITreeNode> Conditions { get; set; }

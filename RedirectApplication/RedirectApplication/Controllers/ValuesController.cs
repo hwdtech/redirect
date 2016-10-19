@@ -37,8 +37,9 @@ namespace RedirectApplication.Controllers
         // GET api/values/5
         public string Get(int id)
         {
-            
-
+            string tree = "{\r\n \"TargetUrl\": \"http://localhost:55129/ \", \r\n  \"Conditions\": \r\n  [\r\n    {\r\n      \"name\": \"Composite\",\r\n      \"Rules\": [\r\n        {\r\n          \"name\": \"ByBrowser\",\r\n          \"Browser\": \"Safari\"\r\n        },\r\n        {\r\n          \"name\": \"ByIp\",\r\n          \"Ip\": [ \"192.168.0.1\", \"192.168.1.192\" ]\r\n        }\r\n      ],\r\n      \"url\": \"ya.ru\",\r\n    },\r\n    {\r\n      \"name\": \"ByBrowser\",\r\n      \"Browser\": \"Chrome\",\r\n      \"url\": \"vk.com\"\r\n    }\r\n  ]\r\n}";
+            JsonWorking json = new JsonWorking();
+            json.Main(tree);
             return "value";
         }
 
