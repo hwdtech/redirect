@@ -14,11 +14,8 @@ namespace RedirectApplication.Json
     {
         public void Main(string tree)
         {
-            //var tree = System.IO.File.ReadAllText("tree.json");
             var reader = new JsonTextReader(new StringReader(tree));
             PostJson content = JsonSerializer.CreateDefault().Deserialize<PostJson>(reader);
-
-            //File.WriteAllText("rules.json",JsonConvert.SerializeObject(content));
         }
     }
 
@@ -84,8 +81,8 @@ namespace RedirectApplication.Json
 
     class PostJson
     {
-      //  [JsonConverter(typeof(TreeNodeConverter))]
-     //   public string TargetUrl { get; set; }
+        [JsonConverter(typeof(TreeNodeConverter))]
+        public string TargetUrl { get; set; }
         [JsonConverter(typeof(TreeNodeConverter))]
         public List<ITreeNode> Conditions { get; set; }
     }
