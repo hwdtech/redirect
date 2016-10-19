@@ -8,7 +8,6 @@ using System.Web.Http;
 using System.Web;
 using NGeoIP;
 using NGeoIP.Client;
-using RedirectApplication.Json;
 namespace RedirectApplication.Controllers
 {
     public class ValuesController : ApiController
@@ -44,9 +43,6 @@ namespace RedirectApplication.Controllers
         // POST api/values
         public void Post([FromBody]string value)
         {
-            string tree = "{\r\n   \"Conditions\": \r\n  [\r\n    {\r\n      \"name\": \"Composite\",\r\n      \"Rules\": [\r\n        {\r\n          \"name\": \"ByBrowser\",\r\n          \"Browser\": \"Safari\"\r\n        },\r\n        {\r\n          \"name\": \"ByIp\",\r\n          \"Ip\": [ \"192.168.0.1\", \"192.168.1.192\" ]\r\n        }\r\n      ],\r\n      \"url\": \"ya.ru\",\r\n    },\r\n    {\r\n      \"name\": \"ByBrowser\",\r\n      \"Browser\": \"Chrome\",\r\n      \"url\": \"vk.com\"\r\n    }\r\n  ]\r\n}";
-            JsonWorking json = new JsonWorking();
-            json.Main(tree);
         }
 
         // PUT api/values/5
