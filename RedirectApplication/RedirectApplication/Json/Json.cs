@@ -84,8 +84,8 @@ namespace RedirectApplication.Json
 
     class PostJson
     {
-        [JsonConverter(typeof(TreeNodeConverter))]
-        public string TargetUrl { get; set; }
+      //  [JsonConverter(typeof(TreeNodeConverter))]
+     //   public string TargetUrl { get; set; }
         [JsonConverter(typeof(TreeNodeConverter))]
         public List<ITreeNode> Conditions { get; set; }
     }
