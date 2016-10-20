@@ -8,6 +8,7 @@ using System.Web.Http;
 using System.Web;
 using NGeoIP;
 using NGeoIP.Client;
+
 namespace RedirectApplication.Controllers
 {
     public class ValuesController : ApiController
@@ -35,7 +36,7 @@ namespace RedirectApplication.Controllers
 
         // GET api/values/5
         public string Get(int id)
-        {            
+        {
             return "value";
         }
 
