@@ -21,18 +21,16 @@ namespace RedirectApplication.Json
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
             var array = JArray.Load(reader);
-            var target = array.Children().Select(child => {
+            return array.Children().Select(child => {
                 var node = CreateNode(child);
                 serializer.Populate(child.CreateReader(), node);
                 return node;
             }).ToList();
-
-            return target;
         }
 
         Dictionary<string, Func<ITreeNode>> RulesType = new Dictionary<string, Func<ITreeNode>>
         {
-            { "composite", () => new Composite() },
+            { "Composite", () => new Composite() },
             { "ByBrowser", () => new ByBrowser()},
             { "ByLanguage", () => new ByLanguage()},
             { "ByCountry", () => new ByCountry()},
