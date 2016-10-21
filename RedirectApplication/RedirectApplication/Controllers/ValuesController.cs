@@ -1,10 +1,13 @@
 ﻿using System;
+using System.IO;
 using System.Net.Http;
 using System.Net;
 using System.Web.Http;
 using System.Web;
 using NGeoIP;
 using NGeoIP.Client;
+using RedirectApplication.Models;
+using Newtonsoft.Json;
 
 namespace RedirectApplication.Controllers
 {
@@ -37,10 +40,13 @@ namespace RedirectApplication.Controllers
         {
             return "value";
         }
-
+        
         // POST api/values
-        public void Post([FromBody]string value)
+        public void Post(HttpRequestMessage request)
         {
+            var someText = request.Content.ReadAsStringAsync().Result;
+            var reader = new JsonTextReader(new StringReader(someText));
+            PostJson content = JsonSerializer.CreateDefault().Deserialize<PostJson>(reader);
         }
 
         // PUT api/values/5
