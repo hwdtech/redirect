@@ -5,13 +5,18 @@ using System.Web.Http;
 using System.Web;
 using NGeoIP;
 using NGeoIP.Client;
-using RedirectApplication.Json;
 using RedirectApplication.Models;
+using Newtonsoft.Json;
+
 
 namespace RedirectApplication.Controllers
 {
     public class ValuesController : ApiController
     {
+        public String SerialDBJson(DbJson content)
+        {
+            return JsonConvert.SerializeObject(content);
+        }
 
         // GET api/values
         public HttpResponseMessage Get()
@@ -43,8 +48,6 @@ namespace RedirectApplication.Controllers
         // POST api/values
         public void Post([FromBody]string value)
         {
-            DbJson test = new DbJson();
-            
         }
 
         // PUT api/values/5
