@@ -40,7 +40,7 @@ namespace RedirectApplication.Controllers
         {
             return "value";
         }
-        
+
         // POST api/values
         public void Post(HttpRequestMessage request)
         {

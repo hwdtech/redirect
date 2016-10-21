@@ -20,16 +20,14 @@ namespace RedirectApplication.Json
             {
                 return reader.Value;
             }
-            else
+            var array = JArray.Load(reader);
+            return array.Children().Select(child =>
             {
-                var array = JArray.Load(reader);
-                return array.Children().Select(child =>
-                {
-                    var node = CreateNode(child);
-                    serializer.Populate(child.CreateReader(), node);
-                    return node;
-                }).ToList();
-            }
+                var node = CreateNode(child);
+                serializer.Populate(child.CreateReader(), node);
+                return node;
+            }).ToList();
+            
         }
 
         Dictionary<string, Func<ITreeNode>> RulesType = new Dictionary<string, Func<ITreeNode>>
