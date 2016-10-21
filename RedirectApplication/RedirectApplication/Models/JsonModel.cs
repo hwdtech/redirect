@@ -16,7 +16,7 @@ namespace RedirectApplication.Models
         public List<ITreeNode> Conditions { get; set; }
     }
 
-    class DbJson
+    public class DbJson
     {
         [JsonConverter(typeof(TreeNodeConverter))]
         public List<ITreeNode> Conditions { get; set; }

@@ -8,6 +8,8 @@ using System.Web.Http;
 using System.Web;
 using NGeoIP;
 using NGeoIP.Client;
+using RedirectApplication.Json;
+using RedirectApplication.Models;
 
 namespace RedirectApplication.Controllers
 {
@@ -43,6 +45,8 @@ namespace RedirectApplication.Controllers
         // POST api/values
         public void Post([FromBody]string value)
         {
+            DbJson test = new DbJson();
+            
         }
 
         // PUT api/values/5
