@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using RedirectApplication.Models;
 
 namespace RedirectApplication.RedirectDB
 {
@@ -15,6 +16,12 @@ namespace RedirectApplication.RedirectDB
         public Boolean IsRuleExist(String Url)
         {
             return context.RedirectRules.Any(x => x.TargetUrl == Url);
+        }
+
+        public void AddRule(RedirectRule NewRule)
+        {
+            context.RedirectRules.Add(NewRule);
+            context.SaveChanges();
         }
     }
 }
