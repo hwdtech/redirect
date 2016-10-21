@@ -5,8 +5,6 @@ using System.Web.Http;
 using System.Web;
 using NGeoIP;
 using NGeoIP.Client;
-using RedirectApplication.RedirectDB;
-using RedirectApplication.Models;
 
 namespace RedirectApplication.Controllers
 {
