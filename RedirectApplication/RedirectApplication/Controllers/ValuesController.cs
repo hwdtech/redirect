@@ -13,10 +13,6 @@ namespace RedirectApplication.Controllers
 {
     public class ValuesController : ApiController
     {
-        public String SerialDBJson(DbJson content)
-        {
-            return JsonConvert.SerializeObject(content);
-        }
 
         // GET api/values
         public HttpResponseMessage Get()

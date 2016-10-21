@@ -16,6 +16,10 @@ namespace RedirectApplication.Models
     {
         [JsonConverter(typeof(TreeNodeConverter))]
         public List<ITreeNode> Conditions { get; set; }
+        public string SerialDBJson()
+        {
+            return JsonConvert.SerializeObject(this);
+        }
     }
 
     public interface ITreeNode
