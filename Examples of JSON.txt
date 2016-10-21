@@ -54,5 +54,5 @@ Browser	language	Country	IP	OS	Device	Time
 {"TargetUrl":"localhost", "Conditions":[{"Name":"ByOS","OS":"Mac","Url":"https://drive.google.com/"}]}
 {"TargetUrl":"localhost", "Conditions":[{"Name":"ByDevice","Device":"Mobile","Url":"https://mail.google.com/"}]}
 {"TargetUrl":"localhost", "Conditions":[{"Name":"ByDevice","Device":"Desktop","Url":"http://www.gibdd.ru/"}]}
-{"TargetUrl":"localhost", "Conditions":[{"Name":"ByDate","Date":"до 15.10","Url":"https://www.gosuslugi.ru/"}]}
-{"TargetUrl":"localhost", "Conditions":[{"Name":"ByDate","Date":"после 15.10","Url":"https://mail.yandex.ru/"}]}
+{"TargetUrl":"localhost", "Conditions":[{"Name":"ByDate","Date":"<15.10","Url":"https://www.gosuslugi.ru/"}]}
+{"TargetUrl":"localhost", "Conditions":[{"Name":"ByDate","Date":">15.10","Url":"https://mail.yandex.ru/"}]}
