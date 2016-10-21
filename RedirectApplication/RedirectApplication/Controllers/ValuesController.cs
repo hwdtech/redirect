@@ -10,6 +10,7 @@ namespace RedirectApplication.Controllers
 {
     public class ValuesController : ApiController
     {
+
         // GET api/values
         public HttpResponseMessage Get()
         {
