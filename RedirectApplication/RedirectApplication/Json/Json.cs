@@ -20,8 +20,7 @@ namespace RedirectApplication.Json
             {
                 return TargetDeserialization(reader);
             }
-            var array = JArray.Load(reader);
-            return ConditionDeserialization(reader);
+            return ConditionDeserialization(reader, serializer);
         }
 
         public object TargetDeserialization(JsonReader reader)
@@ -29,7 +28,7 @@ namespace RedirectApplication.Json
             return reader.Value;
         }
 
-        public object ConditionDeserialization(JsonReader reader)
+        public object ConditionDeserialization(JsonReader reader, JsonSerializer serializer)
         {
             var array = JArray.Load(reader);
             return array.Children().Select(child =>
