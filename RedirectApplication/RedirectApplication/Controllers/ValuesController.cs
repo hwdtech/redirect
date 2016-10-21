@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Net.Http;
-using System.Text;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Web.Http;
 using System.Web;
@@ -13,6 +10,7 @@ namespace RedirectApplication.Controllers
 {
     public class ValuesController : ApiController
     {
+
         // GET api/values
         public HttpResponseMessage Get()
         {
