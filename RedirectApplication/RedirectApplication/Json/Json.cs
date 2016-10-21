@@ -18,8 +18,19 @@ namespace RedirectApplication.Json
         {
             if (reader.Path == "TargetUrl")
             {
-                return reader.Value;
+                return TargetDeserialization(reader);
             }
+            var array = JArray.Load(reader);
+            return ConditionDeserialization(reader);
+        }
+
+        public object TargetDeserialization(JsonReader reader)
+        {
+            return reader.Value;
+        }
+
+        public object ConditionDeserialization(JsonReader reader)
+        {
             var array = JArray.Load(reader);
             return array.Children().Select(child =>
             {

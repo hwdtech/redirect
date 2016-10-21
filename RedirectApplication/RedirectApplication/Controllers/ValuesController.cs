@@ -44,6 +44,11 @@ namespace RedirectApplication.Controllers
         // POST api/values
         public void Post(HttpRequestMessage request)
         {
+            Deserialization(request);
+        }
+
+        public void Deserialization(HttpRequestMessage request)
+        {
             var someText = request.Content.ReadAsStringAsync().Result;
             var reader = new JsonTextReader(new StringReader(someText));
             PostJson content = JsonSerializer.CreateDefault().Deserialize<PostJson>(reader);
