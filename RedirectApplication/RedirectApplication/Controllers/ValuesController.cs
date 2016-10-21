@@ -8,6 +8,7 @@ using System.Web.Http;
 using System.Web;
 using NGeoIP;
 using NGeoIP.Client;
+
 namespace RedirectApplication.Controllers
 {
     public class ValuesController : ApiController
