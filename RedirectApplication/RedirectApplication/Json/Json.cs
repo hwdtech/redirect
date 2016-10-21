@@ -27,7 +27,6 @@ namespace RedirectApplication.Json
                 serializer.Populate(child.CreateReader(), node);
                 return node;
             }).ToList();
-            
         }
 
         Dictionary<string, Func<ITreeNode>> RulesType = new Dictionary<string, Func<ITreeNode>>
