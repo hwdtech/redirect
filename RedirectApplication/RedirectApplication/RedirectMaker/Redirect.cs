@@ -7,9 +7,9 @@ using RedirectApplication.Models;
 using Newtonsoft.Json;
 using System.IO;
 
-namespace RedirectApplication.Controllers
+namespace RedirectApplication.RedirectMaker
 {
-    public class RedirectController
+    public class Redirect
     {
         RedirectRepository db = new RedirectRepository();
         RedirectRule rule = new RedirectRule();
