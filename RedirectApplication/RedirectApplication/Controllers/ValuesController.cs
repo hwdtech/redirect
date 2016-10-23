@@ -30,6 +30,7 @@ namespace RedirectApplication.Controllers
             var rawData = nGeoClient.Execute();
             var Country = rawData.CountryName.ToString(); //The country where the request was made
             var Time = DateTime.Now.ToString(); //The time when the request was made
+
             var resp = new HttpResponseMessage(HttpStatusCode.OK);
             return resp;
         }
