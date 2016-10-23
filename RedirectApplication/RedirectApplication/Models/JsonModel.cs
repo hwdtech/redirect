@@ -4,7 +4,7 @@ using RedirectApplication.Json;
 
 namespace RedirectApplication.Models
 {
-    class PostJson
+    public class PostJson
     {
         [JsonConverter(typeof(TreeNodeConverter))]
         public string TargetUrl { get; set; }
