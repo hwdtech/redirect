@@ -18,6 +18,11 @@ namespace RedirectApplication.RedirectDB
             return context.RedirectRules.Any(x => x.TargetUrl == Url);
         }
 
+        public string GetJsonFromDb(string Url)
+        {
+            return context.RedirectRules.FirstOrDefault(x => x.TargetUrl == Url).Conditions;
+        }
+
         public void AddRule(RedirectRule NewRule)
         {
             context.RedirectRules.Add(NewRule);
