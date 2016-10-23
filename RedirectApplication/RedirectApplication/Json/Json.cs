@@ -16,8 +16,23 @@ namespace RedirectApplication.Json
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
+            if (reader.Path == "TargetUrl")
+            {
+                return TargetDeserialization(reader);
+            }
+            return ConditionDeserialization(reader, serializer);
+        }
+
+        public object TargetDeserialization(JsonReader reader)
+        {
+            return reader.Value;
+        }
+
+        public object ConditionDeserialization(JsonReader reader, JsonSerializer serializer)
+        {
             var array = JArray.Load(reader);
-            return array.Children().Select(child => {
+            return array.Children().Select(child =>
+            {
                 var node = CreateNode(child);
                 serializer.Populate(child.CreateReader(), node);
                 return node;
