@@ -10,10 +10,10 @@ namespace RedirectApplication.Models
         public string url { get; set; }
         public string browser { get; set; }
         public string OS { get; set; }
-        public string MobileOrNot { get; set; }
+        public string mobileOrNot { get; set; }
         public string userIP { get; set; }
         public string language { get; set; }
-        public string Country { get; set; }
-        public string Time { get; set; }
+        public string country { get; set; }
+        public string time { get; set; }
     }
 }
