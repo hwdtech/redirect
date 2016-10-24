@@ -19,12 +19,12 @@ namespace RedirectApplication.Controllers
         {
             var user = new UsersAttributes();
 
-            user.url = HttpContext.Current.Request.RawUrl.ToString();
-            user.browser = HttpContext.Current.Request.Browser.Browser.ToString(); //Which browser is using //http://www.codeproject.com/Articles/1088703/How-to-detect-browsers-in-ASP-NET-with-browser-fil#_comments
+            user.Url = HttpContext.Current.Request.RawUrl.ToString();
+            user.Browser = HttpContext.Current.Request.Browser.Browser.ToString(); //Which browser is using //http://www.codeproject.com/Articles/1088703/How-to-detect-browsers-in-ASP-NET-with-browser-fil#_comments
             user.OS = HttpContext.Current.Request.Browser.Platform.ToString(); ///Which OS is using
-            user.mobileOrNot = HttpContext.Current.Request.Browser.IsMobileDevice.ToString(); //true - request was made by Mobile device
-            user.userIP = HttpContext.Current.Request.UserHostAddress.ToString(); //Now it`s ::1 because it's running locally
-            user.language = Request.Headers.AcceptLanguage.ToString().Substring(0, 2); //The most used language
+            user.MobileOrNot = HttpContext.Current.Request.Browser.IsMobileDevice.ToString(); //true - request was made by Mobile device
+            user.UserIP = HttpContext.Current.Request.UserHostAddress.ToString(); //Now it`s ::1 because it's running locally
+            user.Language = Request.Headers.AcceptLanguage.ToString().Substring(0, 2); //The most used language
             var nGeoRequest = new Request()
             {
                 Format = Format.Json,
@@ -32,8 +32,8 @@ namespace RedirectApplication.Controllers
             };
             var nGeoClient = new NGeoClient(nGeoRequest);
             var rawData = nGeoClient.Execute();
-            user.country = rawData.CountryName.ToString(); //The country where the request was made
-            user.time = DateTime.Now.ToString(); //The time when the request was made
+            user.Country = rawData.CountryName.ToString(); //The country where the request was made
+            user.Time = DateTime.Now.ToString(); //The time when the request was made
 
             var resp = new HttpResponseMessage(HttpStatusCode.OK);
             return resp;

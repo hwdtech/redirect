@@ -7,13 +7,13 @@ namespace RedirectApplication.Models
 {
     public class UsersAttributes
     {
-        public string url { get; set; }
-        public string browser { get; set; }
+        public string Url { get; set; }
+        public string Browser { get; set; }
         public string OS { get; set; }
-        public string mobileOrNot { get; set; }
-        public string userIP { get; set; }
-        public string language { get; set; }
-        public string country { get; set; }
-        public string time { get; set; }
+        public string MobileOrNot { get; set; }
+        public string UserIP { get; set; }
+        public string Language { get; set; }
+        public string Country { get; set; }
+        public string Time { get; set; }
     }
 }
