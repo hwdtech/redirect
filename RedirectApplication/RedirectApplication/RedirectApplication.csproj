@@ -241,6 +241,7 @@
     <Compile Include="RedirectDB\RedirectContext.cs" />
     <Compile Include="RedirectDB\RedirectInitializer.cs" />
     <Compile Include="RedirectDB\RedirectRepository.cs" />
+   <Compile Include="RedirectMaker\Redirect.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

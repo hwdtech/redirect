@@ -16,10 +16,9 @@ namespace RedirectApplication.RedirectMaker
 
         public DbJson DeserializationJsonFromDb(RedirectRule rule)
         {
-            string json = db.GetJsonFromDb(rule.TargetUrl);
+            var json = db.GetJsonFromDb(rule.TargetUrl);
             var reader = new JsonTextReader(new StringReader(json));
-            DbJson content = JsonSerializer.CreateDefault().Deserialize<DbJson>(reader);
-            return content;
+            return JsonSerializer.CreateDefault().Deserialize<DbJson>(reader);
         }
     }
 }
