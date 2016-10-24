@@ -32,11 +32,11 @@ Browser	language	Country	IP	OS	Device	Time
 {"TargetUrl":"localhost", "Conditions": [ {"Name":"Composite","Rules":[{"Name": "ByBrowser", "Browser":"Edge"},{"Name":"ByDate","Date":">18.10"}], "Url":"http://www.protesting.ru/"}]}
 {"TargetUrl":"localhost", "Conditions": [ {"Name":"Composite","Rules":[{"Name": "ByBrowser", "Browser":"Safari"},{"Name":"ByDate","Date":"<18.10"}], "Url":"http://rulesplay.ru/"}]}
 
-{"TargetUrl":"localhost","Conditions":[{"Name:":"ByBrowser","Browser":"Chrome","Url":"http://pikabu.ru/"}]}
-{"TargetUrl":"localhost", "Conditions":[{"Name:":"ByBrowser","Browser":"Opera","Url":"https://www.youtube.com"}]}
-{"TargetUrl":"localhost", "Conditions":[{"Name:":"ByBrowser","Browser":"Safari","Url":"https://twitter.com/"}]}
-{"TargetUrl":"localhost", "Conditions":[{"Name:":"ByBrowser","Browser":"Internet Explorer","Url":"http://amovies.biz/"}]}
-{"TargetUrl":"localhost", "Conditions":[{"Name:":"ByBrowser","Browser":"Edge","Url":"http://amovies.biz/"}]}
+{"TargetUrl":"localhost","Conditions":[{"Name":"ByBrowser","Browser":"Chrome","Url":"http://pikabu.ru/"}]}
+{"TargetUrl":"localhost", "Conditions":[{"Name":"ByBrowser","Browser":"Opera","Url":"https://www.youtube.com"}]}
+{"TargetUrl":"localhost", "Conditions":[{"Name":"ByBrowser","Browser":"Safari","Url":"https://twitter.com/"}]}
+{"TargetUrl":"localhost", "Conditions":[{"Name":"ByBrowser","Browser":"Internet Explorer","Url":"http://amovies.biz/"}]}
+{"TargetUrl":"localhost", "Conditions":[{"Name":"ByBrowser","Browser":"Edge","Url":"http://amovies.biz/"}]}
 {"TargetUrl":"localhost", "Conditions":[{"Name":"ByLanguage", "Language":"ru", "Url":"https://e.mail.ru"}]}
 {"TargetUrl":"localhost", "Conditions":[{"Name":"ByLanguage", "Language":"en", "Url":"https://www.gismeteo.ru"}]}
 {"TargetUrl":"localhost", "Conditions":[{"Name":"ByCountry","Country":"Australia","Url":"https://ru.foursquare.com"}]}
