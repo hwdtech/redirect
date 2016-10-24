@@ -13,7 +13,6 @@ namespace RedirectApplication.Controllers
 {
     public class ValuesController : ApiController
     {
-
         // GET api/values
         public HttpResponseMessage Get()
         {
@@ -31,6 +30,7 @@ namespace RedirectApplication.Controllers
             var rawData = nGeoClient.Execute();
             var Country = rawData.CountryName.ToString(); //The country where the request was made
             var Time = DateTime.Now.ToString(); //The time when the request was made
+
             var resp = new HttpResponseMessage(HttpStatusCode.OK);
             return resp;
         }
@@ -44,10 +44,10 @@ namespace RedirectApplication.Controllers
         // POST api/values
         public void Post(HttpRequestMessage request)
         {
-            PostJson content = Deserialization(request);
+            var content = Deserialization(request);
         }
 
-        public PostJson Deserialization(HttpRequestMessage request)
+        private PostJson Deserialization(HttpRequestMessage request)
         {
             var someText = request.Content.ReadAsStringAsync().Result;
             var reader = new JsonTextReader(new StringReader(someText));
