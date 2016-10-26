@@ -8,6 +8,7 @@ using NGeoIP;
 using NGeoIP.Client;
 using RedirectApplication.Models;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace RedirectApplication.Controllers
 {
@@ -42,19 +43,119 @@ namespace RedirectApplication.Controllers
         }
 
         // POST api/values
-        public void Post(HttpRequestMessage request)
+        public HttpResponseMessage Post(HttpRequestMessage request)
         {
-            PostJson content = Deserialization(request);
+            HttpResponseMessage resp;
+            try
+            {
+                var content = Deserialization(request);
+                if (content == null)
+                {
+                    throw new Exception("Something wrong with structure");
+                }
+                if (content.TargetUrl == null)
+                {
+                    throw new Exception("No TargetUrl");
+                }
+                if (content.Conditions == null)
+                {
+                    throw new Exception("Something wrong with Conditions");
+                }
+                foreach (var field in content.Conditions)
+                {
+                    if (field is Composite)
+                    {
+                        var composite = field as Composite;
+                        if (composite.Rules == null)
+                            throw new Exception("Rules in Composite are incorrect");
+                        if (composite.Url == null)
+                            throw new Exception("Url in Composite is incorrect");
+                        foreach (var ffield in composite.Rules)
+                        {
+                            if (ffield is Composite)
+                                throw new Exception("Composite in Composite");
+                            if (ffield is ByBrowser)
+                            {
+                                var Cbrowser = ffield as ByBrowser;
+                                if (Cbrowser.Url != null)
+                                    throw new Exception("There is an Url in Composite`s Browser");
+                                if (Cbrowser.Browser == null)
+                                    throw new Exception("Browser name is incorrect");
+                            }
+                            if (ffield is ByCountry)
+                            {
+                                var Ccountry = ffield as ByCountry;
+                                if (Ccountry.Url != null)
+                                    throw new Exception("There is an Url in Composite`s Country");
+                                if (Ccountry.Country == null)
+                                    throw new Exception("Country name is incorrect");
+                            }
+                        }
+                    }
+                    if (field is ByBrowser)
+                    {
+                        var bybrowser = field as ByBrowser;
+                        if (bybrowser.Url == null)
+                            throw new Exception("Url in Browser is incorrect");
+                        if (bybrowser.Browser == null)
+                            throw new Exception("Browser is incorrect");
+                    }
+                }
+                resp = new HttpResponseMessage(HttpStatusCode.OK);
+                return resp;
+            }
+            catch (FormatException fe)
+            {
+                resp = new HttpResponseMessage(HttpStatusCode.BadRequest);
+                resp.Content = new StringContent(fe.Message.ToString(), System.Text.Encoding.UTF8, "text/plain");
+                return resp;
+                //Error print etc..
+            }
+            catch (Exception e)
+            {
+                resp = new HttpResponseMessage(HttpStatusCode.BadRequest);
+                resp.Content = new StringContent(e.Message.ToString(), System.Text.Encoding.UTF8, "text/plain");
+                return resp;
+                //Error print etc..
+            }
+
         }
 
-        public PostJson Deserialization(HttpRequestMessage request)
+        private PostJson Deserialization(HttpRequestMessage request)
         {
-            var someText = request.Content.ReadAsStringAsync().Result;
-            var reader = new JsonTextReader(new StringReader(someText));
-            PostJson content = JsonSerializer.CreateDefault().Deserialize<PostJson>(reader);
-            return content;
+                var someText = request.Content.ReadAsStringAsync().Result;
+                var reader = new JsonTextReader(new StringReader(someText));
+                PostJson content = JsonSerializer.CreateDefault().Deserialize<PostJson>(reader);
+                return content;
         }
-
+        private bool IsValidJson(string strInput)
+        {
+            strInput = strInput.Trim();
+            if ((strInput.StartsWith("{") && strInput.EndsWith("}")) || //For object
+                (strInput.StartsWith("[") && strInput.EndsWith("]"))) //For array
+            {
+                try
+                {
+                    var obj = JToken.Parse(strInput);
+                    return true;
+                }
+                catch (JsonReaderException jex)
+                {
+                    //Exception in parsing json
+                    Console.WriteLine(jex.Message);
+                    return false;
+                }
+                catch (Exception ex) //some other exception
+                {
+                    Console.WriteLine(ex.ToString());
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
         // PUT api/values/5
         public void Put(int id, [FromBody]string value)
         {
