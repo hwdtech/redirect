@@ -70,7 +70,7 @@ namespace RedirectApplication.Models
     {
         public string Name { get; set; }
 
-        public string[] Ip { get; set; }
+        public uint[] Ip { get; set; }
 
         public string Url { get; set; }
     }
