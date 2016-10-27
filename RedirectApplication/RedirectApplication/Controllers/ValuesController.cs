@@ -85,7 +85,7 @@ namespace RedirectApplication.Controllers
                                 var Cbrowser = ffield as ByBrowser;
                                 if (Cbrowser.Url != null)
                                     throw new Exception("There is an Url in Composite`s Browser");
-                                if ((Cbrowser.Browser == null)  || (Cbrowser.Browser == ""))
+                                if ((Cbrowser.Browser == null) || (Cbrowser.Browser == ""))
                                     throw new Exception("Browser name is incorrect");
                                 continue;
                             }
@@ -157,7 +157,7 @@ namespace RedirectApplication.Controllers
                     if (field is ByCountry)
                     {
                         var bycountry = field as ByCountry;
-                        if ((bycountry.Url == null)  || (bycountry.Url == ""))
+                        if ((bycountry.Url == null) || (bycountry.Url == ""))
                             throw new Exception("Url in Country is incorrect");
                         if ((bycountry.Country == null) || (bycountry.Country == ""))
                             throw new Exception("Country name is incorrect");
@@ -222,12 +222,12 @@ namespace RedirectApplication.Controllers
 
         private PostJson Deserialization(HttpRequestMessage request)
         {
-                var someText = request.Content.ReadAsStringAsync().Result;
-                var reader = new JsonTextReader(new StringReader(someText));
-                PostJson content = JsonSerializer.CreateDefault().Deserialize<PostJson>(reader);
-                return content;
+            var someText = request.Content.ReadAsStringAsync().Result;
+            var reader = new JsonTextReader(new StringReader(someText));
+            PostJson content = JsonSerializer.CreateDefault().Deserialize<PostJson>(reader);
+            return content;
         }
-       
+
         // PUT api/values/5
         public void Put(int id, [FromBody]string value)
         {
