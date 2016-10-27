@@ -11,7 +11,7 @@ namespace RedirectApplication.Models
         public string Browser { get; set; }
         public string OS { get; set; }
         public bool MobileOrNot { get; set; }
-        public string UserIP { get; set; }
+        public uint UserIP { get; set; }
         public string Language { get; set; }
         public string Country { get; set; }
         public string Time { get; set; }

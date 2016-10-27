@@ -32,11 +32,11 @@ namespace RedirectApplication.RedirectMaker
                 {
                     var composite = fields as Composite;
                     var rules = composite.Rules;
-                    foreach(var OneRule in rules)
+                    foreach(var oneRule in rules)
                     {
-                        if (OneRule is ByBrowser)
+                        if (oneRule is ByBrowser)
                         {
-                            var byBrowser = OneRule as ByBrowser;
+                            var byBrowser = oneRule as ByBrowser;
                             if (user.Browser == byBrowser.Browser)
                             {
                                 continue;
@@ -47,9 +47,9 @@ namespace RedirectApplication.RedirectMaker
                                 break;
                             }
                         }
-                        else if (OneRule is ByLanguage)
+                        else if (oneRule is ByLanguage)
                         {
-                            var byLanguage = OneRule as ByLanguage;
+                            var byLanguage = oneRule as ByLanguage;
                             if (user.Language == byLanguage.Language)
                             {
                                 continue;
@@ -60,9 +60,9 @@ namespace RedirectApplication.RedirectMaker
                                 break;
                             }
                         }
-                        else if (OneRule is ByCountry)
+                        else if (oneRule is ByCountry)
                         {
-                            var byCountry = OneRule as ByCountry;
+                            var byCountry = oneRule as ByCountry;
                             if (user.Country == byCountry.Country)
                             {
                                 continue;
@@ -73,14 +73,14 @@ namespace RedirectApplication.RedirectMaker
                                 break;
                             }
                         }
-                        else if (OneRule is ByIp)
+                        else if (oneRule is ByIp)
                         {
-                            var byIp = OneRule as ByIp;
-                            if (user.UserIP.ToString() == byIp.Ip[0])
+                            var byIp = oneRule as ByIp;
+                            if (user.UserIP == byIp.Ip[0])
                             {
                                 continue;
                             }
-                            else if (user.UserIP.ToString() == byIp.Ip[1])
+                            else if (user.UserIP == byIp.Ip[1])
                             {
                                 continue;
                             }
@@ -90,9 +90,9 @@ namespace RedirectApplication.RedirectMaker
                                 break;
                             }
                         }
-                        else if (OneRule is ByOS)
+                        else if (oneRule is ByOS)
                         {
-                            var byOS = OneRule as ByOS;
+                            var byOS = oneRule as ByOS;
                             if (user.OS == byOS.OS)
                             {
                                 continue;
@@ -103,9 +103,9 @@ namespace RedirectApplication.RedirectMaker
                                 break;
                             }
                         }
-                        else if (OneRule is ByDevice)
+                        else if (oneRule is ByDevice)
                         {
-                            var byDevice = OneRule as ByDevice;
+                            var byDevice = oneRule as ByDevice;
                             if (user.MobileOrNot == byDevice.Device)
                             {
                                 continue;
@@ -116,9 +116,9 @@ namespace RedirectApplication.RedirectMaker
                                 break;
                             }
                         }
-                        else if (OneRule is ByDate)
+                        else if (oneRule is ByDate)
                         {
-                            var byDate = OneRule as ByDate;
+                            var byDate = oneRule as ByDate;
                             if (user.Time == byDate.Date)
                             {
                                 continue;

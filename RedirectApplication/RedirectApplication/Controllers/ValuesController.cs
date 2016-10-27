@@ -24,7 +24,7 @@ namespace RedirectApplication.Controllers
             user.Browser = HttpContext.Current.Request.Browser.Browser.ToString(); //Which browser is using //http://www.codeproject.com/Articles/1088703/How-to-detect-browsers-in-ASP-NET-with-browser-fil#_comments
             user.OS = HttpContext.Current.Request.Browser.Platform.ToString(); ///Which OS is using
             user.MobileOrNot = HttpContext.Current.Request.Browser.IsMobileDevice; //true - request was made by Mobile device
-            user.UserIP = HttpContext.Current.Request.UserHostAddress.ToString(); //Now it`s ::1 because it's running locally
+            user.UserIP = BitConverter.ToUInt32(IPAddress.Parse(HttpContext.Current.Request.UserHostAddress).GetAddressBytes(), 0); //Now it`s ::1 because it's running locally
             user.Language = Request.Headers.AcceptLanguage.ToString().Substring(0, 2); //The most used language
             var nGeoRequest = new Request()
             {
