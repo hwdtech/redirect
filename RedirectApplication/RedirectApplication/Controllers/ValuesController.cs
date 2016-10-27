@@ -36,7 +36,7 @@ namespace RedirectApplication.Controllers
             user.Country = rawData.CountryName.ToString(); //The country where the request was made
             user.Time = DateTime.Now.ToString(); //The time when the request was made+
 
-            var RedirectUrl = redirect.VerificationByRules(user);
+            var redirectUrl = redirect.VerificationByRules(user);
 
             var resp = new HttpResponseMessage(HttpStatusCode.OK);
             return resp;

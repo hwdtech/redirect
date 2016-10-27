@@ -6,7 +6,6 @@ using RedirectApplication.RedirectDB;
 using RedirectApplication.Models;
 using Newtonsoft.Json;
 using System.IO;
-using System.Reflection;
 
 namespace RedirectApplication.RedirectMaker
 {
@@ -197,7 +196,7 @@ namespace RedirectApplication.RedirectMaker
                     }
                 }
             }
-            return "404";
+            return null;
         }
     }
 }
