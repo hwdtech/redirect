@@ -25,7 +25,7 @@ namespace RedirectApplication.RedirectMaker
         {
             var json = DeserializationJsonFromDb(user);
             var array = json.Conditions.ToArray();
-            bool correct = true;
+            var correct = true;
             foreach(var fields in array)
             {
                 if (fields is Composite)
@@ -163,11 +163,11 @@ namespace RedirectApplication.RedirectMaker
                 else if (fields is ByIp)
                 {
                     var byIp = fields as ByIp;
-                    if (user.UserIP.ToString() == byIp.Ip[0])
+                    if (user.UserIP == byIp.Ip[0])
                     {
                         return byIp.Url;
                     }
-                    else if (user.UserIP.ToString() == byIp.Ip[1])
+                    else if (user.UserIP == byIp.Ip[1])
                     {
                         return byIp.Url;
                     }
