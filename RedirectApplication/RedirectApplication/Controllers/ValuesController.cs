@@ -9,6 +9,7 @@ using NGeoIP.Client;
 using RedirectApplication.Models;
 using Newtonsoft.Json;
 using RedirectApplication.RedirectMaker;
+using RedirectApplication.RedirectDB;
 
 namespace RedirectApplication.Controllers
 {
@@ -55,23 +56,25 @@ namespace RedirectApplication.Controllers
         // POST api/values
         public HttpResponseMessage Post(HttpRequestMessage request)
         {
+            var rule = new RedirectRule();
+            var db = new RedirectRepository();
             HttpResponseMessage resp;
             try
             {
-                var content = Deserialization(request);
-                if (content == null)
+                var postRequest = Deserialization(request);
+                if (postRequest == null)
                 {
                     throw new Exception("Something wrong with structure");
                 }
-                if (content.TargetUrl == null)
+                if (postRequest.TargetUrl == null)
                 {
                     throw new Exception("No TargetUrl");
                 }
-                if (content.Conditions == null)
+                if (postRequest.Conditions == null)
                 {
                     throw new Exception("Something wrong with Conditions");
                 }
-                foreach (var field in content.Conditions)
+                foreach (var field in postRequest.Conditions)
                 {
                     if (field is Composite)
                     {
@@ -212,6 +215,11 @@ namespace RedirectApplication.Controllers
                     }
                     throw new Exception("Unknown element in Conditions");
                 }
+
+                rule.TargetUrl = postRequest.TargetUrl;
+                rule.Conditions = Serialization(postRequest);
+                db.AddRule(rule);
+
                 resp = new HttpResponseMessage(HttpStatusCode.OK);
                 return resp;
             }
@@ -230,6 +238,13 @@ namespace RedirectApplication.Controllers
             var reader = new JsonTextReader(new StringReader(someText));
             PostJson content = JsonSerializer.CreateDefault().Deserialize<PostJson>(reader);
             return content;
+        }
+
+        private string Serialization(PostJson content)
+        {
+            var db = new DbJson();
+            db.Conditions = content.Conditions;
+            return db.SerialDBJson();
         }
 
         // PUT api/values/5
