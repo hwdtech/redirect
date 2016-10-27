@@ -21,7 +21,9 @@ namespace RedirectApplication.Controllers
             var user = new UsersAttributes();
             var redirect = new Redirect();
 
-            user.Url = HttpContext.Current.Request.RawUrl.ToString();
+            user.Url = HttpContext.Current.Request.Url.ToString();
+            if (!(new RedirectDB.RedirectRepository()).IsRuleExist(user.Url))
+                return new HttpResponseMessage(HttpStatusCode.NotFound);
             user.Browser = HttpContext.Current.Request.Browser.Browser.ToString(); //Which browser is using //http://www.codeproject.com/Articles/1088703/How-to-detect-browsers-in-ASP-NET-with-browser-fil#_comments
             user.OS = HttpContext.Current.Request.Browser.Platform.ToString(); ///Which OS is using
             user.MobileOrNot = HttpContext.Current.Request.Browser.IsMobileDevice; //true - request was made by Mobile device
@@ -35,12 +37,14 @@ namespace RedirectApplication.Controllers
             var nGeoClient = new NGeoClient(nGeoRequest);
             var rawData = nGeoClient.Execute();
             user.Country = rawData.CountryName.ToString(); //The country where the request was made
-            user.Time = DateTime.Now.ToString(); //The time when the request was made+
-
+            user.Time = DateTime.Now.ToString(); //The time when the request was made
             var redirectUrl = redirect.VerificationByRules(user);
 
-            var resp = new HttpResponseMessage(HttpStatusCode.OK);
-            return resp;
+            if (redirectUrl == null)
+            {
+                return new HttpResponseMessage(HttpStatusCode.NotFound);
+            }
+            return new HttpResponseMessage(HttpStatusCode.OK);
         }
 
         // GET api/values/5

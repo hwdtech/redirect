@@ -131,7 +131,7 @@ namespace RedirectApplication.RedirectMaker
                     }
                     if (correct == false)
                     {
-                        return "404";
+                        return null;
                     }
                     else return composite.Url;
                 }
