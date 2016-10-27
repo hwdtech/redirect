@@ -88,7 +88,7 @@ namespace RedirectApplication.Models
     {
         public string Name { get; set; }
 
-        public string Device { get; set; }
+        public bool Device { get; set; }
 
         public string Url { get; set; }
     }

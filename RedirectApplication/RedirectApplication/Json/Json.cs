@@ -38,13 +38,9 @@ namespace RedirectApplication.Json
                 {
                     ITreeNode node = null;
                         node = CreateNode(child);
-                        if (node == null) throw new FormatException("Node is empty");
+                        if (node == null) throw new Exception("Node is empty");
                         serializer.Populate(child.CreateReader(), node);
                         return node;
-                    //}
-                    //catch
-                    //{ }
-                    //return node;
                 }).ToList();
             }
             catch

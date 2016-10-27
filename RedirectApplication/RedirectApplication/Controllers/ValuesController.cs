@@ -71,7 +71,7 @@ namespace RedirectApplication.Controllers
                         var composite = field as Composite;
                         if (composite.Rules == null)
                             throw new Exception("Rules in Composite are incorrect");
-                        if (composite.Url == null)
+                        if ((composite.Url == null) || (composite.Url == ""))
                             throw new Exception("Url in Composite is incorrect");
                         foreach (var ffield in composite.Rules)
                         {
@@ -82,37 +82,131 @@ namespace RedirectApplication.Controllers
                                 var Cbrowser = ffield as ByBrowser;
                                 if (Cbrowser.Url != null)
                                     throw new Exception("There is an Url in Composite`s Browser");
-                                if (Cbrowser.Browser == null)
+                                if ((Cbrowser.Browser == null)  || (Cbrowser.Browser == ""))
                                     throw new Exception("Browser name is incorrect");
+                                continue;
                             }
                             if (ffield is ByCountry)
                             {
                                 var Ccountry = ffield as ByCountry;
                                 if (Ccountry.Url != null)
                                     throw new Exception("There is an Url in Composite`s Country");
-                                if (Ccountry.Country == null)
+                                if ((Ccountry.Country == null) || (Ccountry.Country == ""))
                                     throw new Exception("Country name is incorrect");
+                                continue;
                             }
+                            if (ffield is ByLanguage)
+                            {
+                                var Clanguage = ffield as ByLanguage;
+                                if (Clanguage.Url != null)
+                                    throw new Exception("There is an Url in Composite`s Language");
+                                if ((Clanguage.Language == null) || (Clanguage.Language == ""))
+                                    throw new Exception("Language name is incorrect");
+                                continue;
+                            }
+                            if (ffield is ByIp)
+                            {
+                                var Cip = ffield as ByIp;
+                                if (Cip.Url != null)
+                                    throw new Exception("There is an Url in Composite`s IP");
+                                if ((Cip.Ip == null) || (Cip.Ip[0] >= Cip.Ip[1]) || (Cip.Ip.Length != 2))
+                                    throw new Exception("IP interval is incorrect");
+                                continue;
+                            }
+                            if (ffield is ByOS)
+                            {
+                                var Cos = ffield as ByOS;
+                                if (Cos.Url != null)
+                                    throw new Exception("There is an Url in Composite`s OS");
+                                if ((Cos.OS == null) || (Cos.OS == ""))
+                                    throw new Exception("OS name is incorrect");
+                                continue;
+                            }
+                            if (ffield is ByDevice)
+                            {
+                                var Cdevice = ffield as ByDevice;
+                                if (Cdevice.Url != null)
+                                    throw new Exception("There is an Url in Composite`s Device");
+                                continue;
+                            }
+                            if (ffield is ByDate)
+                            {
+                                var Cdate = ffield as ByDate;
+                                if (Cdate.Url != null)
+                                    throw new Exception("There is an Url in Composite`s Date");
+                                if ((Cdate.Date == null) || (Cdate.Date == ""))
+                                    throw new Exception("Date is incorrect");
+                                continue;
+                            }
+                            throw new Exception("Unknown element in Composite");
                         }
+                        continue;
                     }
                     if (field is ByBrowser)
                     {
                         var bybrowser = field as ByBrowser;
-                        if (bybrowser.Url == null)
+                        if ((bybrowser.Url == null) || (bybrowser.Url == ""))
                             throw new Exception("Url in Browser is incorrect");
-                        if (bybrowser.Browser == null)
+                        if ((bybrowser.Browser == null) || (bybrowser.Browser == ""))
                             throw new Exception("Browser is incorrect");
+                        continue;
                     }
+                    if (field is ByCountry)
+                    {
+                        var bycountry = field as ByCountry;
+                        if ((bycountry.Url == null)  || (bycountry.Url == ""))
+                            throw new Exception("Url in Country is incorrect");
+                        if ((bycountry.Country == null) || (bycountry.Country == ""))
+                            throw new Exception("Country name is incorrect");
+                        continue;
+                    }
+                    if (field is ByLanguage)
+                    {
+                        var bylanguage = field as ByLanguage;
+                        if ((bylanguage.Url == null) || (bylanguage.Url == ""))
+                            throw new Exception("Url in Language is incorrect");
+                        if ((bylanguage.Language == null) || (bylanguage.Language == ""))
+                            throw new Exception("Language name is incorrect");
+                        continue;
+                    }
+                    if (field is ByIp)
+                    {
+                        var byip = field as ByIp;
+                        if ((byip.Url == null) || (byip.Url == ""))
+                            throw new Exception("Url in IP is incorrect");
+                        if ((byip.Ip == null) || (byip.Ip[0] >= byip.Ip[1]) || (byip.Ip.Length != 2))
+                            throw new Exception("IP interval is incorrect");
+                        continue;
+                    }
+                    if (field is ByOS)
+                    {
+                        var byos = field as ByOS;
+                        if ((byos.Url == null) || (byos.Url == ""))
+                            throw new Exception("Url in OS is incorrect");
+                        if ((byos.OS == null) || (byos.OS == ""))
+                            throw new Exception("OS name is incorrect");
+                        continue;
+                    }
+                    if (field is ByDevice)
+                    {
+                        var bydevice = field as ByDevice;
+                        if ((bydevice.Url == null) || (bydevice.Url == ""))
+                            throw new Exception("Url in Device is incorrect");
+                        continue;
+                    }
+                    if (field is ByDate)
+                    {
+                        var bydate = field as ByDate;
+                        if ((bydate.Url == null) || (bydate.Url == ""))
+                            throw new Exception("Url in Date is incorrect");
+                        if ((bydate.Date == null) || (bydate.Date == ""))
+                            throw new Exception("Date is incorrect");
+                        continue;
+                    }
+                    throw new Exception("Unknown element in Conditions");
                 }
                 resp = new HttpResponseMessage(HttpStatusCode.OK);
                 return resp;
-            }
-            catch (FormatException fe)
-            {
-                resp = new HttpResponseMessage(HttpStatusCode.BadRequest);
-                resp.Content = new StringContent(fe.Message.ToString(), System.Text.Encoding.UTF8, "text/plain");
-                return resp;
-                //Error print etc..
             }
             catch (Exception e)
             {
@@ -130,34 +224,7 @@ namespace RedirectApplication.Controllers
                 PostJson content = JsonSerializer.CreateDefault().Deserialize<PostJson>(reader);
                 return content;
         }
-        private bool IsValidJson(string strInput)
-        {
-            strInput = strInput.Trim();
-            if ((strInput.StartsWith("{") && strInput.EndsWith("}")) || //For object
-                (strInput.StartsWith("[") && strInput.EndsWith("]"))) //For array
-            {
-                try
-                {
-                    var obj = JToken.Parse(strInput);
-                    return true;
-                }
-                catch (JsonReaderException jex)
-                {
-                    //Exception in parsing json
-                    Console.WriteLine(jex.Message);
-                    return false;
-                }
-                catch (Exception ex) //some other exception
-                {
-                    Console.WriteLine(ex.ToString());
-                    return false;
-                }
-            }
-            else
-            {
-                return false;
-            }
-        }
+       
         // PUT api/values/5
         public void Put(int id, [FromBody]string value)
         {
