@@ -30,13 +30,23 @@ namespace RedirectApplication.Json
 
         public object ConditionDeserialization(JsonReader reader, JsonSerializer serializer)
         {
-            var array = JArray.Load(reader);
-            return array.Children().Select(child =>
+            JArray array = null;
+            try
             {
-                var node = CreateNode(child);
-                serializer.Populate(child.CreateReader(), node);
-                return node;
-            }).ToList();
+                array = JArray.Load(reader);
+                return array.Children().Select(child =>
+                {
+                    ITreeNode node = null;
+                        node = CreateNode(child);
+                        if (node == null) throw new Exception("Node is empty");
+                        serializer.Populate(child.CreateReader(), node);
+                        return node;
+                }).ToList();
+            }
+            catch
+            {
+            }
+            return array;
         }
 
         Dictionary<string, Func<ITreeNode>> RulesType = new Dictionary<string, Func<ITreeNode>>
@@ -54,14 +64,15 @@ namespace RedirectApplication.Json
         public ITreeNode CreateNode(JToken obj)
         {
             var type = (string)obj["Name"];
+            ITreeNode buf = null;
             try
             {
-                return RulesType[type]();
+                buf = RulesType[type]();
+                return buf;
             }
-            catch (FormatException)
-            {
-                throw new NotSupportedException();
-            }            
+            catch
+            { }
+            return buf;
         }
 
         public override bool CanConvert(Type objectType)
