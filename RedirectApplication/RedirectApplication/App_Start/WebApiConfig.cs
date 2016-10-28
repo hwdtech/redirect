@@ -21,9 +21,13 @@ namespace RedirectApplication
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
+                name: "PostApi",
+                routeTemplate: "api/{controller}/{action}", defaults: new { controller = "Values", action = "Post" }
+            );
+            config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
+                routeTemplate: "{*catchcall}",
+                defaults: new { controller = "Values", action = "Get" }
             );
         }
     }
