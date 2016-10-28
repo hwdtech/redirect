@@ -15,7 +15,6 @@ namespace RedirectApplication.Controllers
 {
     public class ValuesController : ApiController
     {
-        // GET api/values
         public HttpResponseMessage Get()
         {
             var user = new UsersAttributes();
@@ -49,13 +48,6 @@ namespace RedirectApplication.Controllers
             return response;
         }
 
-        // GET api/values/5
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/values
         public HttpResponseMessage Post(HttpRequestMessage request)
         {
             var rule = new RedirectRule();
@@ -247,16 +239,6 @@ namespace RedirectApplication.Controllers
             var db = new DbJson();
             db.Conditions = content.Conditions;
             return db.SerialDBJson();
-        }
-
-        // PUT api/values/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/values/5
-        public void Delete(int id)
-        {
         }
     }
 }
