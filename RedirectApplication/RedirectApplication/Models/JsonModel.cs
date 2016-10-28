@@ -36,7 +36,7 @@ namespace RedirectApplication.Models
         [JsonConverter(typeof(TreeNodeConverter))]
         public List<ITreeNode> Rules { get; set; }
 
-        public string url { get; set; }
+        public string Url { get; set; }
     }
 
     class ByBrowser : ITreeNode
@@ -70,7 +70,7 @@ namespace RedirectApplication.Models
     {
         public string Name { get; set; }
 
-        public string[] Ip { get; set; }
+        public uint[] Ip { get; set; }
 
         public string Url { get; set; }
     }
@@ -88,7 +88,7 @@ namespace RedirectApplication.Models
     {
         public string Name { get; set; }
 
-        public string Device { get; set; }
+        public bool Device { get; set; }
 
         public string Url { get; set; }
     }
