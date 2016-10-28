@@ -43,7 +43,9 @@ namespace RedirectApplication.Controllers
             {
                 return new HttpResponseMessage(HttpStatusCode.NotFound);
             }
-            return new HttpResponseMessage(HttpStatusCode.OK);
+            var response = Request.CreateResponse(HttpStatusCode.Redirect);
+            response.Headers.Location = new Uri(redirectUrl);
+            return response;
         }
 
         public HttpResponseMessage Post(HttpRequestMessage request)
