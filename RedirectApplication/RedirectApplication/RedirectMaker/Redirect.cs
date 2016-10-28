@@ -75,11 +75,7 @@ namespace RedirectApplication.RedirectMaker
                         else if (oneRule is ByIp)
                         {
                             var byIp = oneRule as ByIp;
-                            if (user.UserIP == byIp.Ip[0])
-                            {
-                                continue;
-                            }
-                            else if (user.UserIP == byIp.Ip[1])
+                            if ((user.UserIP >= byIp.Ip[0]) && (user.UserIP <= byIp.Ip[1]))
                             {
                                 continue;
                             }
@@ -118,22 +114,40 @@ namespace RedirectApplication.RedirectMaker
                         else if (oneRule is ByDate)
                         {
                             var byDate = oneRule as ByDate;
-                            if (user.Time == byDate.Date)
+                            var doOrBefore = byDate.Date.Substring(0, 1);
+                            var dayRule = Convert.ToInt32(byDate.Date.Substring(1, 2));
+                            var monthRule = Convert.ToInt32(byDate.Date.Substring(4, 2));
+                            var dayUser = Convert.ToInt32(user.Time.Substring(0, 2));
+                            var monthUser = Convert.ToInt32(user.Time.Substring(3, 2));
+                            switch (doOrBefore)
                             {
-                                continue;
-                            }
-                            else
-                            {
-                                correct = false;
-                                break;
+                                case ">":
+                                    if (((dayUser >= dayRule) && (monthUser == monthRule)) || (monthUser > monthRule))
+                                    {
+                                        continue;
+                                    }
+                                    else
+                                    {
+                                        correct = false;
+                                    }
+                                    break;
+                                case "<":
+                                    if (((dayUser < dayRule) && (monthUser == monthRule)) || (monthUser < monthRule))
+                                    {
+                                        continue;
+                                    }
+                                    else
+                                    {
+                                        correct = false;
+                                    }
+                                    break;
                             }
                         }
                     }
-                    if (correct == false)
+                    if (correct == true)
                     {
-                        return null;
+                        return composite.Url;
                     }
-                    else return composite.Url;
                 }
                 else if (fields is ByBrowser)
                 {
@@ -190,9 +204,25 @@ namespace RedirectApplication.RedirectMaker
                 else if (fields is ByDate)
                 {
                     var byDate = fields as ByDate;
-                    if (user.Time == byDate.Date)
+                    var doOrBefore = byDate.Date.Substring(0, 1);
+                    var dayRule = Convert.ToInt32(byDate.Date.Substring(1, 2));
+                    var monthRule = Convert.ToInt32(byDate.Date.Substring(4, 2));
+                    var dayUser = Convert.ToInt32(user.Time.Substring(0, 2));
+                    var monthUser = Convert.ToInt32(user.Time.Substring(3, 2));
+                    switch (doOrBefore)
                     {
-                        return byDate.Url;
+                        case ">":
+                            if (((dayUser >= dayRule) && (monthUser == monthRule)) || (monthUser > monthRule))
+                            {
+                                return byDate.Url;
+                            }
+                            break;
+                        case "<":
+                            if (((dayUser < dayRule) && (monthUser == monthRule)) || (monthUser < monthRule))
+                            {
+                                return byDate.Url;
+                            }
+                            break;
                     }
                 }
             }
