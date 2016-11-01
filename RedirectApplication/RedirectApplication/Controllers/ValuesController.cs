@@ -140,6 +140,11 @@ namespace RedirectApplication.Controllers
                                     throw new Exception("There is an Url in Composite`s Date");
                                 if ((Cdate.Date == null) || (Cdate.Date == ""))
                                     throw new Exception("Date is incorrect");
+                                if ((Cdate.Date.Substring(0, 1) != ">") && (Cdate.Date.Substring(0, 1) != "<"))
+                                    throw new Exception("Date is incorrect: wrong mark <>");
+                                DateTime buff;
+                                if (!(DateTime.TryParse(Cdate.Date.Substring(1, Cdate.Date.Length - 1), out buff)))
+                                    throw new Exception("Date is incorrect: wrong time");
                                 continue;
                             }
                             throw new Exception("Unknown element in Composite");
@@ -205,6 +210,11 @@ namespace RedirectApplication.Controllers
                             throw new Exception("Url in Date is incorrect");
                         if ((bydate.Date == null) || (bydate.Date == ""))
                             throw new Exception("Date is incorrect");
+                        if ((bydate.Date.Substring(0,1) != ">") && (bydate.Date.Substring(0, 1) != "<"))
+                            throw new Exception("Date is incorrect: wrong mark <>");
+                        DateTime buff;
+                        if (!(DateTime.TryParse(bydate.Date.Substring(1, bydate.Date.Length - 1), out buff)))
+                            throw new Exception("Date is incorrect: wrong time");
                         continue;
                     }
                     throw new Exception("Unknown element in Conditions");
