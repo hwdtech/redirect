@@ -115,16 +115,11 @@ namespace RedirectApplication.RedirectMaker
                         {
                             var byDate = oneRule as ByDate;
                             var doOrBefore = byDate.Date.Substring(0, 1);
-                            var dayRule = Convert.ToInt32(byDate.Date.Substring(1, 2));
-                            var monthRule = Convert.ToInt32(byDate.Date.Substring(4, 2));
-                            var yearRule = Convert.ToInt32(byDate.Date.Substring(7, 4));
-                            var dayUser = Convert.ToInt32(user.Time.Substring(0, 2));
-                            var monthUser = Convert.ToInt32(user.Time.Substring(3, 2));
-                            var yearUser = Convert.ToInt32(user.Time.Substring(6, 4));
-                             switch (doOrBefore)
+                            var time = byDate.Date.Substring(1, byDate.Date.Length - 1);
+                            switch (doOrBefore)
                             {
                                 case ">":
-                                    if (((dayUser >= dayRule) && (monthUser == monthRule) && (yearUser == yearRule)) || ((monthUser > monthRule) && (yearUser == yearRule)) || (yearUser >= yearRule))
+                                    if (DateTime.Parse(user.Time) >= DateTime.Parse(time))
                                     {
                                         continue;
                                     }
@@ -134,7 +129,7 @@ namespace RedirectApplication.RedirectMaker
                                     }
                                     break;
                                 case "<":
-                                    if (((dayUser < dayRule) && (monthUser == monthRule) && (yearUser == yearRule)) || ((monthUser < monthRule) && (yearUser == yearRule)) || (yearUser <= yearRule))
+                                    if (DateTime.Parse(user.Time) < DateTime.Parse(time))
                                     {
                                         continue;
                                     }
@@ -207,22 +202,17 @@ namespace RedirectApplication.RedirectMaker
                 {
                     var byDate = fields as ByDate;
                     var doOrBefore = byDate.Date.Substring(0, 1);
-                    var dayRule = Convert.ToInt32(byDate.Date.Substring(1, 2));
-                    var monthRule = Convert.ToInt32(byDate.Date.Substring(4, 2));
-                    var yearRule = Convert.ToInt32(byDate.Date.Substring(7, 4));
-                    var dayUser = Convert.ToInt32(user.Time.Substring(0, 2));
-                    var monthUser = Convert.ToInt32(user.Time.Substring(3, 2));
-                    var yearUser = Convert.ToInt32(user.Time.Substring(6, 4));
+                    var time = byDate.Date.Substring(1, byDate.Date.Length - 1);
                     switch (doOrBefore)
                     {
                         case ">":
-                            if (((dayUser >= dayRule) && (monthUser == monthRule) && (yearUser == yearRule)) || ((monthUser > monthRule) && (yearUser == yearRule)) || (yearUser >= yearRule))
+                           if (DateTime.Parse(user.Time) >= DateTime.Parse(time))
                             {
                                 return byDate.Url;
                             }
                             break;
                         case "<":
-                            if (((dayUser < dayRule) && (monthUser == monthRule) && (yearUser == yearRule)) || ((monthUser < monthRule) && (yearUser == yearRule)) || (yearUser <= yearRule))
+                            if (DateTime.Parse(user.Time) < DateTime.Parse(time))
                             {
                                 return byDate.Url;
                             }
