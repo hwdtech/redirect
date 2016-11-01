@@ -122,7 +122,7 @@ namespace RedirectApplication.RedirectMaker
                             switch (doOrBefore)
                             {
                                 case ">":
-                                    if (((dayUser >= dayRule) && (monthUser == monthRule)) || (monthUser > monthRule))
+                                    if (((dayUser >= dayRule) && (monthUser == monthRule)) || (monthUser > monthRule) || ((monthRule == 12) && (monthUser == 1)))
                                     {
                                         continue;
                                     }
@@ -132,7 +132,7 @@ namespace RedirectApplication.RedirectMaker
                                     }
                                     break;
                                 case "<":
-                                    if (((dayUser < dayRule) && (monthUser == monthRule)) || (monthUser < monthRule))
+                                    if (((dayUser < dayRule) && (monthUser == monthRule)) || (monthUser < monthRule) || ((monthRule == 1) && (monthUser == 12)))
                                     {
                                         continue;
                                     }
@@ -212,13 +212,13 @@ namespace RedirectApplication.RedirectMaker
                     switch (doOrBefore)
                     {
                         case ">":
-                            if (((dayUser >= dayRule) && (monthUser == monthRule)) || (monthUser > monthRule))
+                            if (((dayUser >= dayRule) && (monthUser == monthRule)) || (monthUser > monthRule) || ((monthRule == 12) && (monthUser == 1)))
                             {
                                 return byDate.Url;
                             }
                             break;
                         case "<":
-                            if (((dayUser < dayRule) && (monthUser == monthRule)) || (monthUser < monthRule))
+                            if (((dayUser < dayRule) && (monthUser == monthRule)) || (monthUser < monthRule) || ((monthRule == 1) && (monthUser == 12)))
                             {
                                 return byDate.Url;
                             }
