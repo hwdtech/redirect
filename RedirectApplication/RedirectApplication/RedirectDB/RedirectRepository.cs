@@ -25,8 +25,15 @@ namespace RedirectApplication.RedirectDB
 
         public void AddRule(RedirectRule NewRule)
         {
-            context.RedirectRules.Add(NewRule);
-            context.SaveChanges();
+            try
+            {
+                context.RedirectRules.Add(NewRule);
+                context.SaveChanges();
+            }
+            catch
+            {
+                throw new Exception("This TargetUrl already exist");
+            }
         }
     }
 }
