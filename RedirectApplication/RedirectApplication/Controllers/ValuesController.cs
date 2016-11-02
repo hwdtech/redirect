@@ -10,6 +10,7 @@ using RedirectApplication.Models;
 using Newtonsoft.Json;
 using RedirectApplication.RedirectMaker;
 using RedirectApplication.RedirectDB;
+using System.Globalization;
 
 namespace RedirectApplication.Controllers
 {
@@ -36,7 +37,7 @@ namespace RedirectApplication.Controllers
             var nGeoClient = new NGeoClient(nGeoRequest);
             var rawData = nGeoClient.Execute();
             user.Country = rawData.CountryName.ToString(); //The country where the request was made
-            user.Time = DateTime.Now.ToString(); //The time when the request was made
+            user.Time = DateTime.Now.ToString("dd.MM.yyyy"); //The time when the request was made\
             var redirectUrl = redirect.VerificationByRules(user);
 
             if (redirectUrl == null)
