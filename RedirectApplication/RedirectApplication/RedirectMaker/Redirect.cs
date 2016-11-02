@@ -115,11 +115,13 @@ namespace RedirectApplication.RedirectMaker
                         {
                             var byDate = oneRule as ByDate;
                             var doOrBefore = byDate.Date.Substring(0, 1);
-                            var time = byDate.Date.Substring(1, byDate.Date.Length - 1);
+                            var ruleTime = byDate.Date.Substring(1, byDate.Date.Length - 1);
+
                             switch (doOrBefore)
                             {
                                 case ">":
-                                    if (DateTime.Parse(user.Time) >= DateTime.Parse(time))
+
+                                    if (DateTime.Parse(user.Time) >= DateTime.Parse(ruleTime))
                                     {
                                         continue;
                                     }
@@ -129,7 +131,7 @@ namespace RedirectApplication.RedirectMaker
                                     }
                                     break;
                                 case "<":
-                                    if (DateTime.Parse(user.Time) < DateTime.Parse(time))
+                                    if (DateTime.Parse(user.Time) < DateTime.Parse(ruleTime))
                                     {
                                         continue;
                                     }
@@ -202,17 +204,17 @@ namespace RedirectApplication.RedirectMaker
                 {
                     var byDate = fields as ByDate;
                     var doOrBefore = byDate.Date.Substring(0, 1);
-                    var time = byDate.Date.Substring(1, byDate.Date.Length - 1);
+                    var ruleTime = byDate.Date.Substring(1, byDate.Date.Length - 1);
                     switch (doOrBefore)
                     {
                         case ">":
-                           if (DateTime.Parse(user.Time) >= DateTime.Parse(time))
+                            if (DateTime.Parse(user.Time) >= DateTime.Parse(ruleTime))
                             {
                                 return byDate.Url;
                             }
                             break;
                         case "<":
-                            if (DateTime.Parse(user.Time) < DateTime.Parse(time))
+                            if (DateTime.Parse(user.Time) < DateTime.Parse(ruleTime))
                             {
                                 return byDate.Url;
                             }
