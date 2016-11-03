@@ -6,6 +6,7 @@ using RedirectApplication.RedirectDB;
 using RedirectApplication.Models;
 using Newtonsoft.Json;
 using System.IO;
+using System.Globalization;
 
 namespace RedirectApplication.RedirectMaker
 {
@@ -116,12 +117,12 @@ namespace RedirectApplication.RedirectMaker
                             var byDate = oneRule as ByDate;
                             var doOrBefore = byDate.Date.Substring(0, 1);
                             var ruleTime = byDate.Date.Substring(1, byDate.Date.Length - 1);
-
+                            DateTime ruleDate = DateTime.ParseExact(ruleTime, "dd.MM.yyyy", CultureInfo.InvariantCulture);
                             switch (doOrBefore)
                             {
                                 case ">":
 
-                                    if (DateTime.Parse(user.Time) >= DateTime.Parse(ruleTime))
+                                    if (user.Time >= ruleDate)
                                     {
                                         continue;
                                     }
@@ -131,7 +132,7 @@ namespace RedirectApplication.RedirectMaker
                                     }
                                     break;
                                 case "<":
-                                    if (DateTime.Parse(user.Time) < DateTime.Parse(ruleTime))
+                                    if (user.Time < ruleDate)
                                     {
                                         continue;
                                     }
@@ -205,16 +206,17 @@ namespace RedirectApplication.RedirectMaker
                     var byDate = fields as ByDate;
                     var doOrBefore = byDate.Date.Substring(0, 1);
                     var ruleTime = byDate.Date.Substring(1, byDate.Date.Length - 1);
+                    DateTime ruleDate = DateTime.ParseExact(ruleTime, "dd.MM.yyyy", CultureInfo.InvariantCulture);
                     switch (doOrBefore)
                     {
                         case ">":
-                            if (DateTime.Parse(user.Time) >= DateTime.Parse(ruleTime))
+                            if (user.Time >= ruleDate)
                             {
                                 return byDate.Url;
                             }
                             break;
                         case "<":
-                            if (DateTime.Parse(user.Time) < DateTime.Parse(ruleTime))
+                            if (user.Time < ruleDate)
                             {
                                 return byDate.Url;
                             }
