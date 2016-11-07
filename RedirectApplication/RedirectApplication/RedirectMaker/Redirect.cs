@@ -6,6 +6,7 @@ using RedirectApplication.RedirectDB;
 using RedirectApplication.Models;
 using Newtonsoft.Json;
 using System.IO;
+using System.Globalization;
 
 namespace RedirectApplication.RedirectMaker
 {
@@ -75,11 +76,7 @@ namespace RedirectApplication.RedirectMaker
                         else if (oneRule is ByIp)
                         {
                             var byIp = oneRule as ByIp;
-                            if (user.UserIP == byIp.Ip[0])
-                            {
-                                continue;
-                            }
-                            else if (user.UserIP == byIp.Ip[1])
+                            if ((user.UserIP >= byIp.Ip[0]) && (user.UserIP <= byIp.Ip[1]))
                             {
                                 continue;
                             }
@@ -118,22 +115,39 @@ namespace RedirectApplication.RedirectMaker
                         else if (oneRule is ByDate)
                         {
                             var byDate = oneRule as ByDate;
-                            if (user.Time == byDate.Date)
+                            var doOrBefore = byDate.Date.Substring(0, 1);
+                            var ruleTime = byDate.Date.Substring(1, byDate.Date.Length - 1);
+                            DateTime ruleDate = DateTime.ParseExact(ruleTime, "dd.MM.yyyy", CultureInfo.InvariantCulture);
+                            switch (doOrBefore)
                             {
-                                continue;
-                            }
-                            else
-                            {
-                                correct = false;
-                                break;
+                                case ">":
+
+                                    if (user.Time >= ruleDate)
+                                    {
+                                        continue;
+                                    }
+                                    else
+                                    {
+                                        correct = false;
+                                    }
+                                    break;
+                                case "<":
+                                    if (user.Time < ruleDate)
+                                    {
+                                        continue;
+                                    }
+                                    else
+                                    {
+                                        correct = false;
+                                    }
+                                    break;
                             }
                         }
                     }
-                    if (correct == false)
+                    if (correct == true)
                     {
-                        return null;
+                        return composite.Url;
                     }
-                    else return composite.Url;
                 }
                 else if (fields is ByBrowser)
                 {
@@ -190,9 +204,23 @@ namespace RedirectApplication.RedirectMaker
                 else if (fields is ByDate)
                 {
                     var byDate = fields as ByDate;
-                    if (user.Time == byDate.Date)
+                    var doOrBefore = byDate.Date.Substring(0, 1);
+                    var ruleTime = byDate.Date.Substring(1, byDate.Date.Length - 1);
+                    DateTime ruleDate = DateTime.ParseExact(ruleTime, "dd.MM.yyyy", CultureInfo.InvariantCulture);
+                    switch (doOrBefore)
                     {
-                        return byDate.Url;
+                        case ">":
+                            if (user.Time >= ruleDate)
+                            {
+                                return byDate.Url;
+                            }
+                            break;
+                        case "<":
+                            if (user.Time < ruleDate)
+                            {
+                                return byDate.Url;
+                            }
+                            break;
                     }
                 }
             }
